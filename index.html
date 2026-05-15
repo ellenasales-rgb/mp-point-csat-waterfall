@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Waterfall CSAT — Point · Abr–Mai/2026</title>
+  <title>Waterfall CSAT — Point · MXW · 2026</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -312,10 +312,41 @@
       text-align: center;
       margin-top: 6px;
     }
+
+    /* ── Period Tabs ── */
+    .tab-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .tab-btn {
+      padding: 8px 20px;
+      border: 1.5px solid #dde3ec;
+      border-radius: 20px;
+      background: #fff;
+      color: #666;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .tab-btn:hover { border-color: #3483fa; color: #3483fa; }
+    .tab-btn.active {
+      background: #3483fa;
+      border-color: #3483fa;
+      color: #fff;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
 <div class="page">
+
+  <!-- ── Period Tabs ── -->
+  <div class="tab-bar">
+    <button class="tab-btn active" data-period="abr_mai" onclick="switchPeriod('abr_mai')">Abr–Mai/26</button>
+    <button class="tab-btn"        data-period="mar_mai" onclick="switchPeriod('mar_mai')">Mar–Mai/26</button>
+  </div>
 
   <!-- ── Header ── -->
   <div class="header">
@@ -462,6 +493,99 @@ const RAW = {
   }
 };
 
+
+// ─────────────────────────────────────────────────────────────
+//  RAW DATA — Mar–Mai/2026
+// ─────────────────────────────────────────────────────────────
+const RAW_MAR_MAY = {
+  TOTAL: {
+    label: 'Cross-sites (todos)', csat: 74.37, total_surveys: 11724,
+    l2: [
+      { l2: 'Point reader hardware faults and RMA',                                                surveys: 4412, detratores:  955, csat_pct: 78.35, gap_pp: 8.15 },
+      { l2: 'Point payment acceptance and usage (risk, methods, fees)',                            surveys: 1959, detratores:  648, csat_pct: 66.92, gap_pp: 5.53 },
+      { l2: 'Shipments, deliveries, and returns for Point purchases and consumables',              surveys: 1480, detratores:  508, csat_pct: 65.68, gap_pp: 4.33 },
+      { l2: 'Point account and entitlement management (linking, ownership, vouchers)',             surveys: 1993, detratores:  437, csat_pct: 78.07, gap_pp: 3.73 },
+      { l2: 'In-person payment reconciliation and refunds (Point)',                                surveys:  736, detratores:  242, csat_pct: 67.12, gap_pp: 2.06 },
+      { l2: 'Cellular/SIM connectivity in Point devices',                                         surveys:  971, detratores:  159, csat_pct: 83.63, gap_pp: 1.36 },
+      { l2: 'Otros',                                                                               surveys:   94, detratores:   32, csat_pct: 65.96, gap_pp: 0.27 },
+      { l2: 'Fiscal receipt/invoice service activation and configuration (SII and receipts)',     surveys:   72, detratores:   23, csat_pct: 68.06, gap_pp: 0.20 },
+      { l2: 'Redelcom/Smart POS operations and migration (Chile)',                                 surveys:    7, detratores:    1, csat_pct: 85.71, gap_pp: 0.01 },
+    ]
+  },
+  MLA: {
+    label: 'MLA — Argentina', csat: 78.74, total_surveys: 1773,
+    l2: [
+      { l2: 'Point reader hardware faults and RMA',                                                surveys:  924, detratores:  182, csat_pct: 80.30, gap_pp:10.27 },
+      { l2: 'Shipments, deliveries, and returns for Point purchases and consumables',              surveys:  224, detratores:   68, csat_pct: 69.64, gap_pp: 3.84 },
+      { l2: 'Point payment acceptance and usage (risk, methods, fees)',                            surveys:  206, detratores:   56, csat_pct: 72.82, gap_pp: 3.16 },
+      { l2: 'Point account and entitlement management (linking, ownership, vouchers)',             surveys:  242, detratores:   45, csat_pct: 81.40, gap_pp: 2.54 },
+      { l2: 'In-person payment reconciliation and refunds (Point)',                                surveys:   54, detratores:   12, csat_pct: 77.78, gap_pp: 0.68 },
+      { l2: 'Cellular/SIM connectivity in Point devices',                                         surveys:  108, detratores:    9, csat_pct: 91.67, gap_pp: 0.51 },
+      { l2: 'Otros',                                                                               surveys:   11, detratores:    3, csat_pct: 72.73, gap_pp: 0.17 },
+      { l2: 'Fiscal receipt/invoice service activation and configuration (SII and receipts)',     surveys:    4, detratores:    2, csat_pct: 50.00, gap_pp: 0.11 },
+    ]
+  },
+  MLB: {
+    label: 'MLB — Brasil', csat: 73.37, total_surveys: 6372,
+    l2: [
+      { l2: 'Point reader hardware faults and RMA',                                                surveys: 2250, detratores:  549, csat_pct: 75.60, gap_pp: 8.62 },
+      { l2: 'Point payment acceptance and usage (risk, methods, fees)',                            surveys: 1141, detratores:  395, csat_pct: 65.38, gap_pp: 6.20 },
+      { l2: 'Point account and entitlement management (linking, ownership, vouchers)',             surveys: 1206, detratores:  276, csat_pct: 77.11, gap_pp: 4.33 },
+      { l2: 'Shipments, deliveries, and returns for Point purchases and consumables',              surveys:  709, detratores:  222, csat_pct: 68.69, gap_pp: 3.48 },
+      { l2: 'In-person payment reconciliation and refunds (Point)',                                surveys:  331, detratores:  122, csat_pct: 63.14, gap_pp: 1.91 },
+      { l2: 'Cellular/SIM connectivity in Point devices',                                         surveys:  674, detratores:  119, csat_pct: 82.34, gap_pp: 1.87 },
+      { l2: 'Otros',                                                                               surveys:   47, detratores:   10, csat_pct: 78.72, gap_pp: 0.16 },
+      { l2: 'Fiscal receipt/invoice service activation and configuration (SII and receipts)',     surveys:   13, detratores:    4, csat_pct: 69.23, gap_pp: 0.06 },
+      { l2: 'Redelcom/Smart POS operations and migration (Chile)',                                 surveys:    1, detratores:    0, csat_pct:100.00, gap_pp: 0.00 },
+    ]
+  },
+  MLC: {
+    label: 'MLC — Chile', csat: 61.98, total_surveys: 363,
+    l2: [
+      { l2: 'Point payment acceptance and usage (risk, methods, fees)',                            surveys:   63, detratores:   41, csat_pct: 34.92, gap_pp:11.29 },
+      { l2: 'Point reader hardware faults and RMA',                                                surveys:  105, detratores:   31, csat_pct: 70.48, gap_pp: 8.54 },
+      { l2: 'Point account and entitlement management (linking, ownership, vouchers)',             surveys:   64, detratores:   18, csat_pct: 71.88, gap_pp: 4.96 },
+      { l2: 'Fiscal receipt/invoice service activation and configuration (SII and receipts)',     surveys:   42, detratores:   14, csat_pct: 66.67, gap_pp: 3.86 },
+      { l2: 'In-person payment reconciliation and refunds (Point)',                                surveys:   26, detratores:   12, csat_pct: 53.85, gap_pp: 3.31 },
+      { l2: 'Shipments, deliveries, and returns for Point purchases and consumables',              surveys:   37, detratores:   11, csat_pct: 70.27, gap_pp: 3.03 },
+      { l2: 'Cellular/SIM connectivity in Point devices',                                         surveys:   20, detratores:   10, csat_pct: 50.00, gap_pp: 2.75 },
+      { l2: 'Redelcom/Smart POS operations and migration (Chile)',                                 surveys:    5, detratores:    1, csat_pct: 80.00, gap_pp: 0.28 },
+      { l2: 'Otros',                                                                               surveys:    1, detratores:    0, csat_pct:100.00, gap_pp: 0.00 },
+    ]
+  },
+  MLM: {
+    label: 'MLM — México', csat: 75.34, total_surveys: 3216,
+    l2: [
+      { l2: 'Shipments, deliveries, and returns for Point purchases and consumables',              surveys:  510, detratores:  207, csat_pct: 59.41, gap_pp: 6.44 },
+      { l2: 'Point reader hardware faults and RMA',                                                surveys: 1133, detratores:  193, csat_pct: 82.97, gap_pp: 6.00 },
+      { l2: 'Point payment acceptance and usage (risk, methods, fees)',                            surveys:  549, detratores:  156, csat_pct: 71.58, gap_pp: 4.85 },
+      { l2: 'Point account and entitlement management (linking, ownership, vouchers)',             surveys:  481, detratores:   98, csat_pct: 79.63, gap_pp: 3.05 },
+      { l2: 'In-person payment reconciliation and refunds (Point)',                                surveys:  325, detratores:   96, csat_pct: 70.46, gap_pp: 2.99 },
+      { l2: 'Cellular/SIM connectivity in Point devices',                                         surveys:  169, detratores:   21, csat_pct: 87.57, gap_pp: 0.65 },
+      { l2: 'Otros',                                                                               surveys:   35, detratores:   19, csat_pct: 45.71, gap_pp: 0.59 },
+      { l2: 'Fiscal receipt/invoice service activation and configuration (SII and receipts)',     surveys:   13, detratores:    3, csat_pct: 76.92, gap_pp: 0.09 },
+      { l2: 'Redelcom/Smart POS operations and migration (Chile)',                                 surveys:    1, detratores:    0, csat_pct:100.00, gap_pp: 0.00 },
+    ]
+  }
+};
+
+// ── Controle de período ──────────────────────────────────────
+let ACTIVE_DATA = RAW;      // começa em Abr-Mai
+let ACTIVE_PERIOD = 'abr_mai';
+const PERIOD_LABELS = {
+  abr_mai: { short: 'Abr–Mai/26', sub: 'MXW · Abr–Mai/26' },
+  mar_mai: { short: 'Mar–Mai/26', sub: 'MXW · Mar–Mai/26' },
+};
+
+function switchPeriod(key) {
+  if (key === ACTIVE_PERIOD) return;
+  ACTIVE_PERIOD = key;
+  ACTIVE_DATA   = key === 'mar_mai' ? RAW_MAR_MAY : RAW;
+  document.querySelectorAll('.tab-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.period === key));
+  updateView(document.getElementById('site-select').value);
+}
+
 // ─────────────────────────────────────────────────────────────
 //  CONSTANTS
 // ─────────────────────────────────────────────────────────────
@@ -514,7 +638,7 @@ function getShort(l2) {
 //  BUILD WATERFALL DATA FOR A GIVEN SITE
 // ─────────────────────────────────────────────────────────────
 function buildWaterfall(siteKey) {
-  const d = RAW[siteKey];
+  const d = ACTIVE_DATA[siteKey];
   const sorted = [...d.l2].sort((a, b) => b.gap_pp - a.gap_pp);
   const top    = sorted.slice(0, TOP_N);
   const rest   = sorted.slice(TOP_N);
@@ -905,7 +1029,7 @@ function renderTable(siteKey, wf) {
 //  RENDER HEADER & STATS
 // ─────────────────────────────────────────────────────────────
 function renderHeader(siteKey, wf) {
-  const d      = RAW[siteKey];
+  const d      = ACTIVE_DATA[siteKey];
   const topL2  = wf.top[0];
   const isAll  = siteKey === 'TOTAL';
   const sites  = isAll ? 'cross-sites (MLA, MLB, MLC, MLM)' : d.label;
@@ -913,7 +1037,7 @@ function renderHeader(siteKey, wf) {
   document.getElementById('hdr-l2').textContent   = topL2.l2;
   document.getElementById('hdr-csat').textContent  = fmt(d.csat) + '%';
   document.getElementById('hdr-sub').textContent   =
-    `GAP de CSAT por L2 · MXW · Abr–Mai/26 · ${sites}`;
+    `GAP de CSAT por L2 · ${PERIOD_LABELS[ACTIVE_PERIOD].sub} · ${sites}`;
 
   // Stats bar
   const gapTotal = 100 - d.csat;
@@ -941,7 +1065,7 @@ function renderHeader(siteKey, wf) {
 //  RENDER TABLE META & VALIDATION
 // ─────────────────────────────────────────────────────────────
 function renderMeta(siteKey, wf) {
-  const d       = RAW[siteKey];
+  const d       = ACTIVE_DATA[siteKey];
   const gapTot  = 100 - d.csat;
   const sumGaps = d.l2.reduce((s, r) => s + r.gap_pp, 0);
   const diff    = Math.abs(gapTot - sumGaps);
@@ -979,7 +1103,7 @@ const CAT_COLORS = ['#2d6a4f','#1d3461','#e07a00','#7c3f9e','#1a7d8e'];
 //  PANEL FUNCTIONS
 // ─────────────────────────────────────────────────────────────
 function openPanel(siteKey, l2Name) {
-  const siteLabel = RAW[siteKey] ? RAW[siteKey].label : 'Cross-sites (todos)';
+  const siteLabel = ACTIVE_DATA[siteKey] ? ACTIVE_DATA[siteKey].label : 'Cross-sites (todos)';
   const data = (DRILLDOWN[siteKey] || {})[l2Name];
 
   document.getElementById('panel-site-tag').textContent =
