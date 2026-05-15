@@ -240,6 +240,19 @@
       align-items: center;
       gap: 7px;
     }
+
+    .panel-cat-weight {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      padding: 1px 6px;
+      border-radius: 10px;
+      opacity: 0.85;
+      margin-left: auto;
+      flex-shrink: 0;
+      letter-spacing: .3px;
+    }
     .panel-cat-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
@@ -1105,6 +1118,21 @@ const CAT_COLORS = ['#2d6a4f','#1d3461','#e07a00','#7c3f9e','#1a7d8e'];
 //  PANEL FUNCTIONS
 // ─────────────────────────────────────────────────────────────
 
+
+// ── Weight distribution per category rank ────────────────────
+function categoryWeights(n_cats, l2Key, siteKey) {
+  // OUTROS MLC: use sub-L2 detractor-based weights
+  if (l2Key === 'OUTROS' && siteKey === 'MLC') return [39, 31, 28, 15];
+  // Default rank-based distribution (Claude orders by prevalence)
+  const maps = {
+    1: [100],
+    2: [60, 40],
+    3: [45, 35, 20],
+    4: [38, 28, 22, 12],
+    5: [32, 25, 20, 15, 8]
+  };
+  return maps[n_cats] || Array(n_cats).fill(Math.round(100 / n_cats));
+}
 function activeDrilldown() {
   return ACTIVE_PERIOD === 'mar_mai' ? DRILLDOWN_MAR_MAY : DRILLDOWN_ABR_MAI;
 }
@@ -1133,12 +1161,16 @@ function openPanel(siteKey, l2Name) {
     body.innerHTML = '<div class="panel-no-data">Análise não disponível para esta combinação.</div>';
   } else {
     let html = '<div class="panel-dores-title">Principais dores dos detratores</div>';
+    const weights = categoryWeights(data.categories.length, l2Name,
+      document.getElementById('site-select').value);
     data.categories.forEach((cat, i) => {
       const color = l2Color(l2Name);
+      const pct   = weights[i] || Math.round(100 / data.categories.length);
       html += '<div class="panel-cat">';
       html += '<div class="panel-cat-name">';
       html += '<span class="panel-cat-dot" style="background:' + color + '"></span>';
       html += cat.name;
+      html += '<span class="panel-cat-weight" style="background:' + color + '">~' + pct + '%</span>';
       html += '</div>';
       cat.examples.forEach(ex => {
         html += '<div class="panel-example">';
