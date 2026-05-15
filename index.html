@@ -604,34 +604,35 @@ function switchPeriod(key) {
 // ─────────────────────────────────────────────────────────────
 const TOP_N = 5;
 
-// Cores fixas por nome de L2 — independentes do site selecionado
-const L2_COLOR_MAP = {
-  'Point reader hardware faults and RMA':                                                '#2d6a4f',
-  'Point payment acceptance and usage (risk, methods, fees)':                           '#1d3461',
-  'Shipments, deliveries, and returns for Point purchases and consumables':             '#e07a00',
-  'Point account and entitlement management (linking, ownership, vouchers)':           '#7c3f9e',
-  'In-person payment reconciliation and refunds (Point)':                              '#1a7d8e',
-  'Cellular/SIM connectivity in Point devices':                                        '#c0392b',
-  'Fiscal receipt/invoice service activation and configuration (SII and receipts)':   '#7f8c8d',
-  'Redelcom/Smart POS operations and migration (Chile)':                              '#8e6b3e',
-};
-function l2Color(l2) { return L2_COLOR_MAP[l2] || '#9ca3af'; }
 
-const OUTROS_COLOR   = '#9ca3af';
+const L2_COLOR_MAP = {
+  'Point reader hardware faults and RMA':                                                '#1d3461',  // Fallas y reemplazo
+  'Point payment acceptance and usage (risk, methods, fees)':                           '#c41e3a',  // Método de cobros
+  'Point account and entitlement management (linking, ownership, vouchers)':           '#e07a00',  // Gestión de Producto Point
+  'Shipments, deliveries, and returns for Point purchases and consumables':            '#1a7d8e',  // Logística
+  'In-person payment reconciliation and refunds (Point)':                              '#8b6e2e',  // Devolución de cobros
+  'Fiscal receipt/invoice service activation and configuration (SII and receipts)':   '#d4a800',  // Redelcom
+  'Cellular/SIM connectivity in Point devices':                                        '#b0b0b0',  // Otros
+  'Redelcom/Smart POS operations and migration (Chile)':                              '#b0b0b0',  // Otros
+};
+function l2Color(l2) { return L2_COLOR_MAP[l2] || '#b0b0b0'; }
+
+const OUTROS_COLOR   = '#b0b0b0';  // Otros
 const CSAT_BAR_COLOR = '#b8cce4';
 const C100_BAR_COLOR = '#d5e3f0';
 
+
 const SHORT_LABEL = {
-  'Point reader hardware faults and RMA':                                                 ['Reader hardware', '/ RMA'],
-  'Point payment acceptance and usage (risk, methods, fees)':                            ['Pagamento /', 'aceitação'],
-  'Shipments, deliveries, and returns for Point purchases and consumables':              ['Envios e', 'devoluções'],
-  'Point account and entitlement management (linking, ownership, vouchers)':            ['Conta e', 'habilitação'],
-  'In-person payment reconciliation and refunds (Point)':                               ['Conciliação /', 'reembolso'],
-  'Cellular/SIM connectivity in Point devices':                                         ['Conectividade', 'SIM'],
-  'Fiscal receipt/invoice service activation and configuration (SII and receipts)':    ['Nota fiscal', '/ SII'],
-  'Redelcom/Smart POS operations and migration (Chile)':                               ['Redelcom /', 'Smart POS'],
-  '(Sem L2)':  'Sem L2',
-  'Otros':     'Otros',
+  'Point reader hardware faults and RMA':                                              ['Fallas y', 'reemplazo'],
+  'Point payment acceptance and usage (risk, methods, fees)':                         ['Método de', 'cobros'],
+  'Shipments, deliveries, and returns for Point purchases and consumables':           'Logística',
+  'Point account and entitlement management (linking, ownership, vouchers)':         ['Gestión de', 'Producto Point'],
+  'In-person payment reconciliation and refunds (Point)':                            ['Devolución', 'de cobros'],
+  'Fiscal receipt/invoice service activation and configuration (SII and receipts)': 'Redelcom',
+  'Cellular/SIM connectivity in Point devices':                                      ['Conectividad', 'SIM'],
+  'Redelcom/Smart POS operations and migration (Chile)':                            ['Smart POS', 'Redelcom'],
+  '(Sem L2)': 'Sin L2',
+  'Otros': 'Otros',
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -643,6 +644,18 @@ function fmt(n, d = 1) {
 function fmtN(n) {
   return Number(n).toLocaleString('pt-BR');
 }
+
+// Nomes de exibição conforme legenda do produto
+const L2_DISPLAY_NAME = {
+  'Point reader hardware faults and RMA':                                              'Fallas y reemplazo',
+  'Point payment acceptance and usage (risk, methods, fees)':                         'Método de cobros',
+  'Shipments, deliveries, and returns for Point purchases and consumables':           'Logística',
+  'Point account and entitlement management (linking, ownership, vouchers)':         'Gestión de Producto Point',
+  'In-person payment reconciliation and refunds (Point)':                            'Devolución de cobros',
+  'Fiscal receipt/invoice service activation and configuration (SII and receipts)': 'Redelcom',
+  'OUTROS': 'Otros',
+};
+function l2DisplayName(l2) { return L2_DISPLAY_NAME[l2] || l2; }
 function getShort(l2) {
   return SHORT_LABEL[l2] || l2.substring(0, 18);
 }
@@ -683,7 +696,7 @@ function buildWaterfall(siteKey) {
   });
 
   if (outrosGap > 0.005) {
-    labels.push('Outros');
+    labels.push('Otros');
     floats.push([cumul, cumul + outrosGap]);
     bgClrs.push(OUTROS_COLOR);
     gaps.push(outrosGap);
@@ -1047,7 +1060,7 @@ function renderHeader(siteKey, wf) {
   const isAll  = siteKey === 'TOTAL';
   const sites  = isAll ? 'cross-sites (MLA, MLB, MLC, MLM)' : d.label;
 
-  document.getElementById('hdr-l2').textContent   = topL2.l2;
+  document.getElementById('hdr-l2').textContent   = l2DisplayName(topL2.l2);
   document.getElementById('hdr-csat').textContent  = fmt(d.csat) + '%';
   document.getElementById('hdr-sub').textContent   =
     `GAP de CSAT por L2 · ${PERIOD_LABELS[ACTIVE_PERIOD].sub} · ${sites}`;
@@ -1069,7 +1082,7 @@ function renderHeader(siteKey, wf) {
     </div>
     <div class="stat-item">
       <span class="stat-label">L2 mais crítico</span>
-      <span class="stat-value" style="font-size:13px;color:#2d6a4f">${topL2.l2.split('(')[0].trim()}</span>
+      <span class="stat-value" style="font-size:13px;color:#2d6a4f">${l2DisplayName(topL2.l2)}</span>
     </div>
   `;
 }
@@ -1144,7 +1157,7 @@ function openPanel(siteKey, l2Name) {
     siteLabel + (data
       ? ' · ' + data.n_detratores + ' det · ' + (data.n_promotores || 0) + ' pro analisados'
       : '');
-  const displayName = l2Name === 'OUTROS' ? 'Outros L2s agrupados' : l2Name;
+  const displayName = l2Name === 'OUTROS' ? 'Otros' : l2DisplayName(l2Name);
   document.getElementById('panel-l2-title').textContent = displayName;
   // Show grouped L2s list for OUTROS
   const l2SubEl = document.getElementById('panel-l2-sub');
