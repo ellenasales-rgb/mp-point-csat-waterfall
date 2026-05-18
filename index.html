@@ -430,6 +430,84 @@
       font-size: 11px; font-weight: 700; text-transform: uppercase;
       letter-spacing: .5px; color: #3483fa; margin-bottom: 8px;
     }
+
+    /* ── Validacao entrega ── */
+    .val-section {
+      background: #fff; border-radius: 10px; padding: 20px 24px;
+      margin-top: 14px; box-shadow: 0 1px 4px rgba(0,0,0,.07);
+    }
+    .val-title {
+      font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px;
+    }
+    .val-subtitle { font-size: 12px; color: #888; margin-bottom: 18px; }
+
+    .val-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 680px) { .val-grid { grid-template-columns: 1fr; } }
+
+    .val-card {
+      border-radius: 8px; padding: 16px 18px;
+      border: 1.5px solid #eee;
+    }
+    .val-card.mlb { border-color: #a5d6a7; background: #f1f8f1; }
+    .val-card.hsp { border-color: #ffcc80; background: #fff8f0; }
+
+    .val-card-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .5px; margin-bottom: 12px;
+    }
+    .val-card.mlb .val-card-title { color: #2e7d32; }
+    .val-card.hsp .val-card-title { color: #e65100; }
+
+    .val-metric { margin-bottom: 10px; }
+    .val-metric-label { font-size: 11px; color: #888; margin-bottom: 3px; }
+    .val-metric-row { display: flex; align-items: center; gap: 8px; }
+    .val-metric-num { font-size: 20px; font-weight: 700; color: #1a1a2e; min-width: 36px; }
+    .val-metric-pct { font-size: 12px; color: #666; }
+    .val-bar-wrap { flex: 1; height: 8px; background: #e8e8e8; border-radius: 4px; overflow: hidden; }
+    .val-bar { height: 100%; border-radius: 4px; }
+    .val-bar.mlb { background: #66bb6a; }
+    .val-bar.hsp { background: #ffa726; }
+    .val-bar.mlb-light { background: #a5d6a7; }
+    .val-bar.hsp-light { background: #ffcc80; }
+
+    .val-by-site { margin-bottom: 14px; }
+    .val-by-site-title { font-size: 11px; font-weight: 700; color: #888;
+      text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+    .val-site-row {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 6px; font-size: 12px;
+    }
+    .val-site-label { width: 40px; font-weight: 600; color: #444; flex-shrink: 0; }
+    .val-site-bar-wrap { flex: 1; height: 16px; background: #f0f0f0; border-radius: 3px; overflow: hidden; position: relative; }
+    .val-site-bar { height: 100%; border-radius: 3px; display: flex; align-items: center; padding-left: 6px; }
+    .val-site-bar span { font-size: 10px; font-weight: 700; color: #fff; }
+    .val-site-nums { font-size: 11px; color: #666; flex-shrink: 0; width: 90px; text-align: right; }
+
+    .val-finding {
+      background: #fff3e0; border-left: 4px solid #ffa726;
+      border-radius: 6px; padding: 12px 16px; font-size: 12px;
+      color: #5d4037; line-height: 1.55;
+    }
+    .val-finding strong { color: #bf360c; }
+
+    .val-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 14px; }
+    .val-table th {
+      text-align: left; padding: 6px 10px; font-weight: 600;
+      color: #666; font-size: 11px; border-bottom: 2px solid #eee;
+      text-transform: uppercase; letter-spacing: .4px;
+    }
+    .val-table th.r, .val-table td.r { text-align: right; }
+    .val-table td { padding: 7px 10px; border-bottom: 1px solid #f3f3f3; }
+    .val-table tr:last-child td { border-bottom: none; }
+    .val-table tr.highlight-hsp td { background: #fff8f0; font-weight: 600; }
+    .val-table tr.highlight-mlb td { background: #f1f8f1; }
+    .badge-hsp { background: #fff3e0; color: #e65100; font-weight: 700;
+      padding: 1px 6px; border-radius: 4px; font-size: 11px; }
+    .badge-mlb { background: #e8f5e9; color: #2e7d32; font-weight: 700;
+      padding: 1px 6px; border-radius: 4px; font-size: 11px; }
   </style>
 </head>
 <body>
@@ -516,6 +594,166 @@
       <div class="log-context-label">Contexto geral</div>
       <span id="log-context-text"></span>
     </div>
+  
+    <!-- Validacao entrega -->
+    <div class="val-section" id="val-entrega">
+      <div class="val-title">Validacao: &ldquo;Sistema indica entregue, mas vendedor nao recebeu&rdquo;</div>
+      <div class="val-subtitle">Universo completo · Mar&ndash;Mai/26 · todas as conversas HELP do L2 Logistica</div>
+
+      <div class="val-grid">
+        <!-- MLB card -->
+        <div class="val-card mlb">
+          <div class="val-card-title">&#127463;&#127479; MLB &mdash; Brasil</div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Detratores que negam ter recebido</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num">4</span>
+              <div class="val-bar-wrap"><div class="val-bar mlb" style="width:1.8%"></div></div>
+              <span class="val-metric-pct">1,8% de 224 det.</span>
+            </div>
+          </div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Sistema indica entregue + vendedor nega</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num">1</span>
+              <div class="val-bar-wrap"><div class="val-bar mlb-light" style="width:0.4%"></div></div>
+              <span class="val-metric-pct">0,4% de 224 det.</span>
+            </div>
+          </div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Promotores que negam recebimento</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num">12</span>
+              <div class="val-bar-wrap"><div class="val-bar mlb" style="width:2.4%"></div></div>
+              <span class="val-metric-pct">2,4% de 494 pro.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HSP card -->
+        <div class="val-card hsp">
+          <div class="val-card-title">&#127758; HSP &mdash; MLA / MLC / MLM</div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Detratores que negam ter recebido</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num">53</span>
+              <div class="val-bar-wrap"><div class="val-bar hsp" style="width:18.1%"></div></div>
+              <span class="val-metric-pct">18,1% de 293 det.</span>
+            </div>
+          </div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Sistema indica entregue + vendedor nega</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num">10</span>
+              <div class="val-bar-wrap"><div class="val-bar hsp-light" style="width:3.4%"></div></div>
+              <span class="val-metric-pct">3,4% de 293 det.</span>
+            </div>
+          </div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Promotores que negam recebimento</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num">78</span>
+              <div class="val-bar-wrap"><div class="val-bar hsp" style="width:15.9%"></div></div>
+              <span class="val-metric-pct">15,9% de 492 pro.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Por site HSP -->
+      <div class="val-by-site">
+        <div class="val-by-site-title">Detratores que negam recebimento &mdash; por site</div>
+        <!-- MLM -->
+        <div class="val-site-row">
+          <span class="val-site-label">MLM</span>
+          <div class="val-site-bar-wrap">
+            <div class="val-site-bar" style="width:16.5%;background:#ffa726">
+              <span>16,5%</span>
+            </div>
+          </div>
+          <span class="val-site-nums">35 de 212 det.</span>
+        </div>
+        <!-- MLA -->
+        <div class="val-site-row">
+          <span class="val-site-label">MLA</span>
+          <div class="val-site-bar-wrap">
+            <div class="val-site-bar" style="width:24.3%;background:#ff7043">
+              <span>24,3%</span>
+            </div>
+          </div>
+          <span class="val-site-nums">17 de 70 det.</span>
+        </div>
+        <!-- MLC -->
+        <div class="val-site-row">
+          <span class="val-site-label">MLC</span>
+          <div class="val-site-bar-wrap">
+            <div class="val-site-bar" style="width:9.1%;background:#ffcc80">
+              <span style="color:#555">9,1%</span>
+            </div>
+          </div>
+          <span class="val-site-nums">1 de 11 det.</span>
+        </div>
+        <!-- MLB -->
+        <div class="val-site-row">
+          <span class="val-site-label">MLB</span>
+          <div class="val-site-bar-wrap">
+            <div class="val-site-bar" style="width:1.8%;background:#66bb6a">
+              <span></span>
+            </div>
+          </div>
+          <span class="val-site-nums">4 de 224 det. (1,8%)</span>
+        </div>
+      </div>
+
+      <!-- Tabela resumo -->
+      <table class="val-table">
+        <thead>
+          <tr>
+            <th>Grupo</th><th>Segmento</th><th class="r">Total conv.</th>
+            <th class="r">Nega recebimento</th><th class="r">%</th>
+            <th class="r">Sis. entregue + nega</th><th class="r">%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-hsp">
+            <td><span class="badge-hsp">HSP</span></td><td>Detratores</td>
+            <td class="r">293</td><td class="r"><strong>53</strong></td><td class="r"><strong>18,1%</strong></td>
+            <td class="r"><strong>10</strong></td><td class="r"><strong>3,4%</strong></td>
+          </tr>
+          <tr class="highlight-mlb">
+            <td><span class="badge-mlb">MLB</span></td><td>Detratores</td>
+            <td class="r">224</td><td class="r">4</td><td class="r">1,8%</td>
+            <td class="r">1</td><td class="r">0,4%</td>
+          </tr>
+          <tr>
+            <td><span class="badge-hsp">HSP</span></td><td>Promotores</td>
+            <td class="r">492</td><td class="r">78</td><td class="r">15,9%</td>
+            <td class="r">12</td><td class="r">2,4%</td>
+          </tr>
+          <tr>
+            <td><span class="badge-mlb">MLB</span></td><td>Promotores</td>
+            <td class="r">494</td><td class="r">12</td><td class="r">2,4%</td>
+            <td class="r">0</td><td class="r">0,0%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="val-finding">
+        <strong>10x mais casos no HSP:</strong> 18,1% dos detratores HSP negam ter recebido o produto
+        (vs. 1,8% no MLB). O padrao estrito &mdash; sistema marca como entregue <em>e</em> vendedor
+        contradiz na mesma conversa &mdash; aparece em <strong>10 casos HSP vs. 1 MLB</strong>.
+        O MLM concentra 9 dos 10 casos HSP, e o MLA tem a maior taxa relativa (24,3% de negacao).
+        O alto volume de promotores HSP que tambem negam recebimento (15,9%) indica que o problema
+        ocorre mesmo quando resolvido posteriormente &mdash; nao e exclusivo de detratores.
+      </div>
+    </div>
+
   </div><!-- /view-logistica -->
 
 </div><!-- /page -->
