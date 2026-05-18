@@ -1443,6 +1443,13 @@ function renderHeader(siteKey, wf) {
 // ─────────────────────────────────────────────────────────────
 //  RENDER TABLE META & VALIDATION
 // ─────────────────────────────────────────────────────────────
+
+function computeSiteDR(period, siteKey) {
+  const siteData = ((DEFLECTION || {})[period] || {})[siteKey] || {};
+  let totConv = 0, totDef = 0;
+  Object.values(siteData).forEach(v => { totConv += v.total; totDef += v.def; });
+  return totConv > 0 ? Math.round(totDef / totConv * 1000) / 10 : null;
+}
 function renderMeta(siteKey, wf) {
   const d       = ACTIVE_DATA[siteKey];
   const gapTot  = 100 - d.csat;
@@ -1450,8 +1457,10 @@ function renderMeta(siteKey, wf) {
   const diff    = Math.abs(gapTot - sumGaps);
   const ok      = diff <= 0.1;
 
+  const _dr = computeSiteDR(ACTIVE_PERIOD, siteKey);
+  const _drTxt = _dr !== null ? ' · DR <strong>' + String(_dr).replace('.', ',') + '%</strong>' : '';
   document.getElementById('tbl-meta').innerHTML =
-    `${d.label} · CSAT <strong>${fmt(d.csat)}%</strong> · Gap <strong>−${fmt(gapTot, 1)} p.p.</strong> · ${fmtN(d.total_surveys)} surveys`;
+    `${d.label} · CSAT <strong>${fmt(d.csat)}%</strong> · Gap <strong>−${fmt(gapTot, 1)} p.p.</strong> · ${fmtN(d.total_surveys)} surveys` + _drTxt;
 
   document.getElementById('validation').innerHTML =
     `Validação: Σ gaps = ${fmt(sumGaps, 2)} pp · Esperado = ${fmt(gapTot, 2)} pp · Δ = ${fmt(diff, 3)} pp · ` +
