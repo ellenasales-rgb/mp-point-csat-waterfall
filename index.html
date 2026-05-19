@@ -597,118 +597,160 @@
     </div>
   
     <!-- Validacao entrega -->
+        <!-- Validacao entrega v2 — metrica unificada + CSAT -->
     <div class="val-section" id="val-entrega">
-      <div class="val-title">Validacao: &ldquo;Sistema indica entregue, mas vendedor nao recebeu&rdquo;</div>
-      <div class="val-subtitle">Universo completo · Mar&ndash;Mai/26 · todas as conversas HELP do L2 Logistica</div>
+      <div class="val-title">Validacao: &ldquo;Vendedor indica nao ter recebido o produto&rdquo;</div>
+      <div class="val-subtitle">
+        Universo: todas as conversas HELP do L2 Logistica &middot; Mar&ndash;Mai/26 &middot; detectado via keywords nas transcricoes<br>
+        <small style="color:#aaa">Padrao amplo: qualquer negacao de recebimento &middot; Padrao estrito: sistema indica entregue <em>e</em> vendedor nega na mesma conversa</small>
+      </div>
 
       <div class="val-grid">
-        <!-- MLB card -->
+        <!-- MLB -->
         <div class="val-card mlb">
-          <div class="val-card-title">&#127463;&#127479; MLB &mdash; Brasil</div>
+          <div class="val-card-title">&#127463;&#127479; MLB &mdash; Brasil &middot; 726 conversas</div>
 
           <div class="val-metric">
-            <div class="val-metric-label">Detratores que negam ter recebido</div>
+            <div class="val-metric-label">Nao recebimento (padrao amplo + estrito combinados)</div>
             <div class="val-metric-row">
-              <span class="val-metric-num">4</span>
-              <div class="val-bar-wrap"><div class="val-bar mlb" style="width:1.8%"></div></div>
-              <span class="val-metric-pct">1,8% de 224 det.</span>
+              <span class="val-metric-num">17</span>
+              <div class="val-bar-wrap"><div class="val-bar mlb" style="width:2.3%"></div></div>
+              <span class="val-metric-pct">2,3% do total</span>
+            </div>
+            <div style="font-size:11px;color:#888;margin-top:3px;padding-left:44px">
+              Padrao estrito (sis. indica entregue + nega): <strong>1 caso</strong>
             </div>
           </div>
 
-          <div class="val-metric">
-            <div class="val-metric-label">Sistema indica entregue + vendedor nega</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num">1</span>
-              <div class="val-bar-wrap"><div class="val-bar mlb-light" style="width:0.4%"></div></div>
-              <span class="val-metric-pct">0,4% de 224 det.</span>
+          <div class="val-metric" style="margin-top:12px;padding:10px 12px;background:#e8f5e9;border-radius:6px">
+            <div class="val-metric-label" style="color:#2e7d32;font-weight:700">CSAT dos casos de nao recebimento</div>
+            <div style="display:flex;align-items:center;gap:16px;margin-top:6px">
+              <div style="text-align:center">
+                <div style="font-size:22px;font-weight:700;color:#2e7d32">70,6%</div>
+                <div style="font-size:10px;color:#555">casos nao-recebidos<br>12 prom / 5 det (17 com CSAT)</div>
+              </div>
+              <div style="font-size:20px;color:#ccc">vs</div>
+              <div style="text-align:center">
+                <div style="font-size:18px;font-weight:600;color:#555">68,6%</div>
+                <div style="font-size:10px;color:#888">CSAT geral<br>Logistica MLB</div>
+              </div>
+              <div style="font-size:11px;color:#388e3c;font-weight:600;background:#c8e6c9;padding:2px 8px;border-radius:10px">+2,0 pp</div>
             </div>
-          </div>
-
-          <div class="val-metric">
-            <div class="val-metric-label">Promotores que negam recebimento</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num">12</span>
-              <div class="val-bar-wrap"><div class="val-bar mlb" style="width:2.4%"></div></div>
-              <span class="val-metric-pct">2,4% de 494 pro.</span>
+            <div style="font-size:11px;color:#666;margin-top:6px">
+              No MLB, casos de nao recebimento tem CSAT <em>ligeiramente superior</em> ao geral &mdash;
+              a maioria (71%) resolveu o problema e avaliou positivamente.
             </div>
           </div>
         </div>
 
-        <!-- HSP card -->
+        <!-- HSP -->
         <div class="val-card hsp">
-          <div class="val-card-title">&#127758; HSP &mdash; MLA / MLC / MLM</div>
+          <div class="val-card-title">&#127758; HSP &mdash; MLA / MLC / MLM &middot; 789 conversas</div>
 
           <div class="val-metric">
-            <div class="val-metric-label">Detratores que negam ter recebido</div>
+            <div class="val-metric-label">Nao recebimento (padrao amplo + estrito combinados)</div>
             <div class="val-metric-row">
-              <span class="val-metric-num">53</span>
-              <div class="val-bar-wrap"><div class="val-bar hsp" style="width:18.1%"></div></div>
-              <span class="val-metric-pct">18,1% de 293 det.</span>
+              <span class="val-metric-num">131</span>
+              <div class="val-bar-wrap"><div class="val-bar hsp" style="width:16.6%"></div></div>
+              <span class="val-metric-pct">16,6% do total</span>
+            </div>
+            <div style="font-size:11px;color:#888;margin-top:3px;padding-left:50px">
+              Padrao estrito (sis. indica entregue + nega): <strong>22 casos</strong>
             </div>
           </div>
 
-          <div class="val-metric">
-            <div class="val-metric-label">Sistema indica entregue + vendedor nega</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num">10</span>
-              <div class="val-bar-wrap"><div class="val-bar hsp-light" style="width:3.4%"></div></div>
-              <span class="val-metric-pct">3,4% de 293 det.</span>
+          <div class="val-metric" style="margin-top:12px;padding:10px 12px;background:#fff3e0;border-radius:6px">
+            <div class="val-metric-label" style="color:#e65100;font-weight:700">CSAT dos casos de nao recebimento</div>
+            <div style="display:flex;align-items:center;gap:16px;margin-top:6px">
+              <div style="text-align:center">
+                <div style="font-size:22px;font-weight:700;color:#e65100">59,5%</div>
+                <div style="font-size:10px;color:#555">casos nao-recebidos<br>78 prom / 53 det (131 com CSAT)</div>
+              </div>
+              <div style="font-size:20px;color:#ccc">vs</div>
+              <div style="text-align:center">
+                <div style="font-size:18px;font-weight:600;color:#555">~61,6%</div>
+                <div style="font-size:10px;color:#888">CSAT geral<br>Logistica HSP</div>
+              </div>
+              <div style="font-size:11px;color:#c62828;font-weight:600;background:#ffcdd2;padding:2px 8px;border-radius:10px">-2,1 pp</div>
             </div>
-          </div>
-
-          <div class="val-metric">
-            <div class="val-metric-label">Promotores que negam recebimento</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num">78</span>
-              <div class="val-bar-wrap"><div class="val-bar hsp" style="width:15.9%"></div></div>
-              <span class="val-metric-pct">15,9% de 492 pro.</span>
+            <div style="font-size:11px;color:#666;margin-top:6px">
+              No HSP, casos de nao recebimento tem CSAT <em>abaixo</em> do geral &mdash;
+              40% sao detratores, indicando que a experiencia piora significativamente quando ha problema de entrega.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Por site HSP -->
+      <!-- Por site HSP com CSAT -->
       <div class="val-by-site">
-        <div class="val-by-site-title">Detratores que negam recebimento &mdash; por site</div>
+        <div class="val-by-site-title">Nao recebimento por site &mdash; volume e CSAT dos casos</div>
+
         <!-- MLM -->
-        <div class="val-site-row">
-          <span class="val-site-label">MLM</span>
-          <div class="val-site-bar-wrap">
-            <div class="val-site-bar" style="width:16.5%;background:#ffa726">
-              <span>16,5%</span>
+        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
+          <span class="val-site-label" style="padding-top:4px">MLM</span>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="val-site-bar-wrap" style="flex:1">
+                <div class="val-site-bar" style="width:14.9%;background:#ffa726">
+                  <span>14,9%</span>
+                </div>
+              </div>
+              <span class="val-site-nums">78 de 524</span>
+              <span style="font-size:11px;font-weight:700;color:#e65100;min-width:80px">CSAT: 55,1%</span>
             </div>
+            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">43 promotores / 35 detratores &middot; 18 com padrao estrito</div>
           </div>
-          <span class="val-site-nums">35 de 212 det.</span>
         </div>
+
         <!-- MLA -->
-        <div class="val-site-row">
-          <span class="val-site-label">MLA</span>
-          <div class="val-site-bar-wrap">
-            <div class="val-site-bar" style="width:24.3%;background:#ff7043">
-              <span>24,3%</span>
+        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
+          <span class="val-site-label" style="padding-top:4px">MLA</span>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="val-site-bar-wrap" style="flex:1">
+                <div class="val-site-bar" style="width:22.4%;background:#ff7043">
+                  <span>22,4%</span>
+                </div>
+              </div>
+              <span class="val-site-nums">51 de 228</span>
+              <span style="font-size:11px;font-weight:700;color:#bf360c;min-width:80px">CSAT: 66,7%</span>
             </div>
+            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">34 promotores / 17 detratores &middot; 4 com padrao estrito</div>
           </div>
-          <span class="val-site-nums">17 de 70 det.</span>
         </div>
+
         <!-- MLC -->
-        <div class="val-site-row">
-          <span class="val-site-label">MLC</span>
-          <div class="val-site-bar-wrap">
-            <div class="val-site-bar" style="width:9.1%;background:#ffcc80">
-              <span style="color:#555">9,1%</span>
+        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
+          <span class="val-site-label" style="padding-top:4px">MLC</span>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="val-site-bar-wrap" style="flex:1">
+                <div class="val-site-bar" style="width:5.4%;background:#ffcc80">
+                  <span style="color:#555">5,4%</span>
+                </div>
+              </div>
+              <span class="val-site-nums">2 de 37</span>
+              <span style="font-size:11px;font-weight:600;color:#888;min-width:80px">CSAT: 50,0%</span>
             </div>
+            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">1 promotor / 1 detrator &middot; volume reduzido</div>
           </div>
-          <span class="val-site-nums">1 de 11 det.</span>
         </div>
+
         <!-- MLB -->
-        <div class="val-site-row">
-          <span class="val-site-label">MLB</span>
-          <div class="val-site-bar-wrap">
-            <div class="val-site-bar" style="width:1.8%;background:#66bb6a">
-              <span></span>
+        <div class="val-site-row" style="align-items:flex-start">
+          <span class="val-site-label" style="padding-top:4px">MLB</span>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="val-site-bar-wrap" style="flex:1">
+                <div class="val-site-bar" style="width:2.3%;background:#66bb6a">
+                  <span></span>
+                </div>
+              </div>
+              <span class="val-site-nums">17 de 726 (2,3%)</span>
+              <span style="font-size:11px;font-weight:700;color:#2e7d32;min-width:80px">CSAT: 70,6%</span>
             </div>
+            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">12 promotores / 5 detratores &middot; 1 com padrao estrito</div>
           </div>
-          <span class="val-site-nums">4 de 224 det. (1,8%)</span>
         </div>
       </div>
 
@@ -716,44 +758,63 @@
       <table class="val-table">
         <thead>
           <tr>
-            <th>Grupo</th><th>Segmento</th><th class="r">Total conv.</th>
-            <th class="r">Nega recebimento</th><th class="r">%</th>
-            <th class="r">Sis. entregue + nega</th><th class="r">%</th>
+            <th>Grupo / Site</th>
+            <th class="r">Total conv.</th>
+            <th class="r">Nao recebidos</th>
+            <th class="r">%</th>
+            <th class="r">Padrao estrito</th>
+            <th class="r">CSAT (nao receb.)</th>
+            <th class="r">CSAT geral L2</th>
           </tr>
         </thead>
         <tbody>
           <tr class="highlight-hsp">
-            <td><span class="badge-hsp">HSP</span></td><td>Detratores</td>
-            <td class="r">293</td><td class="r"><strong>53</strong></td><td class="r"><strong>18,1%</strong></td>
-            <td class="r"><strong>10</strong></td><td class="r"><strong>3,4%</strong></td>
+            <td><span class="badge-hsp">HSP total</span></td>
+            <td class="r">789</td><td class="r"><strong>131</strong></td><td class="r"><strong>16,6%</strong></td>
+            <td class="r">22</td>
+            <td class="r"><strong style="color:#e65100">59,5%</strong></td>
+            <td class="r">~61,6%</td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px;color:#888">MLM</td>
+            <td class="r">524</td><td class="r">78</td><td class="r">14,9%</td>
+            <td class="r">18</td>
+            <td class="r" style="color:#e65100">55,1%</td>
+            <td class="r">59,5%</td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px;color:#888">MLA</td>
+            <td class="r">228</td><td class="r">51</td><td class="r">22,4%</td>
+            <td class="r">4</td>
+            <td class="r" style="color:#bf360c">66,7%</td>
+            <td class="r">69,3%</td>
+          </tr>
+          <tr>
+            <td style="padding-left:24px;color:#888">MLC</td>
+            <td class="r">37</td><td class="r">2</td><td class="r">5,4%</td>
+            <td class="r">0</td>
+            <td class="r" style="color:#888">50,0%</td>
+            <td class="r">70,3%</td>
           </tr>
           <tr class="highlight-mlb">
-            <td><span class="badge-mlb">MLB</span></td><td>Detratores</td>
-            <td class="r">224</td><td class="r">4</td><td class="r">1,8%</td>
-            <td class="r">1</td><td class="r">0,4%</td>
-          </tr>
-          <tr>
-            <td><span class="badge-hsp">HSP</span></td><td>Promotores</td>
-            <td class="r">492</td><td class="r">78</td><td class="r">15,9%</td>
-            <td class="r">12</td><td class="r">2,4%</td>
-          </tr>
-          <tr>
-            <td><span class="badge-mlb">MLB</span></td><td>Promotores</td>
-            <td class="r">494</td><td class="r">12</td><td class="r">2,4%</td>
-            <td class="r">0</td><td class="r">0,0%</td>
+            <td><span class="badge-mlb">MLB</span></td>
+            <td class="r">726</td><td class="r"><strong>17</strong></td><td class="r"><strong>2,3%</strong></td>
+            <td class="r">1</td>
+            <td class="r"><strong style="color:#2e7d32">70,6%</strong></td>
+            <td class="r">68,6%</td>
           </tr>
         </tbody>
       </table>
 
       <div class="val-finding">
-        <strong>10x mais casos no HSP:</strong> 18,1% dos detratores HSP negam ter recebido o produto
-        (vs. 1,8% no MLB). O padrao estrito &mdash; sistema marca como entregue <em>e</em> vendedor
-        contradiz na mesma conversa &mdash; aparece em <strong>10 casos HSP vs. 1 MLB</strong>.
-        O MLM concentra 9 dos 10 casos HSP, e o MLA tem a maior taxa relativa (24,3% de negacao).
-        O alto volume de promotores HSP que tambem negam recebimento (15,9%) indica que o problema
-        ocorre mesmo quando resolvido posteriormente &mdash; nao e exclusivo de detratores.
+        <strong>7,2x mais casos de nao recebimento no HSP vs MLB</strong> (16,6% vs 2,3%).
+        O CSAT dos casos HSP (59,5%) e <strong>2,1 pp abaixo</strong> do CSAT geral do L2, enquanto no MLB o CSAT dos casos de nao recebimento
+        e <em>superior</em> ao geral (+2,0 pp) &mdash; indicando que no Brasil o problema tende a ser resolvido e o cliente sai satisfeito.
+        No HSP, 40% dos casos de nao recebimento sao detratores (vs 29% no MLB), com MLM apresentando o CSAT mais critico: 55,1%.
+        O padrao estrito (sistema indica entregue + vendedor nega) concentra 22 casos no HSP vs apenas 1 no MLB.
       </div>
     </div>
+
 
   </div><!-- /view-logistica -->
 
