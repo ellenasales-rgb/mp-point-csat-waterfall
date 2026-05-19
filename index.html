@@ -246,12 +246,13 @@
       font-size: 10px;
       font-weight: 700;
       color: #fff;
-      padding: 1px 6px;
+      padding: 2px 8px;
       border-radius: 10px;
-      opacity: 0.85;
+      opacity: 0.88;
       margin-left: auto;
       flex-shrink: 0;
-      letter-spacing: .3px;
+      letter-spacing: .2px;
+      white-space: nowrap;
     }
     .panel-cat-dot {
       width: 8px; height: 8px;
@@ -1687,7 +1688,9 @@ function openPanel(siteKey, l2Name) {
       html += '<div class="panel-cat-name">';
       html += '<span class="panel-cat-dot" style="background:' + color + '"></span>';
       html += cat.name;
-      html += '<span class="panel-cat-weight" style="background:' + color + '">~' + pct + '%</span>';
+      const catEnc = data.n_detratores ? Math.round(pct / 100 * data.n_detratores) : null;
+      const encTxt = catEnc !== null ? '~' + pct + '% · ' + catEnc + ' enc.' : '~' + pct + '%';
+      html += '<span class="panel-cat-weight" style="background:' + color + '">' + encTxt + '</span>';
       html += '</div>';
       cat.examples.forEach(ex => {
         html += '<div class="panel-example">';
