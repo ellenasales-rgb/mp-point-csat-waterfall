@@ -531,6 +531,17 @@
     .falha-sub-badge.csat-mid  { background: #fff3e0; color: #e65100; }
     .falha-sub-badge.csat-ok   { background: #e8f5e9; color: #2e7d32; }
     .falha-examples { display: flex; flex-direction: column; gap: 6px; }
+
+    /* ── Cobros MLB vs HSP ── */
+    #view-cobros { display: none; }
+
+    .cob-csat-hi  { color: #2e7d32; font-weight: 700; }
+    .cob-csat-mid { color: #b45309; font-weight: 700; }
+    .cob-csat-lo  { color: #c62828; font-weight: 700; }
+    .cob-neutral  { color: #555; }
+    .cob-theme-row td { vertical-align: middle; }
+    .cob-bar-wrap { width: 70px; height: 8px; background: #eee; border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; }
+    .cob-bar { height: 100%; border-radius: 4px; }
   </style>
 </head>
 <body>
@@ -541,6 +552,7 @@
     <button class="tab-btn active" data-period="abr_mai" onclick="switchPeriod('abr_mai')">Abr–Mai/26</button>
     <button class="tab-btn"        data-period="mar_mai" onclick="switchPeriod('mar_mai')">Mar–Mai/26</button>
     <button class="tab-btn" data-view="logistica" onclick="switchView('logistica')">Logística MLB vs HSP</button>
+    <button class="tab-btn" data-view="cobros" onclick="switchView('cobros')">Cobros MLB vs HSP</button>
   </div>
 
   <div id="view-waterfall">
@@ -1056,6 +1068,295 @@
 
   </div><!-- /view-logistica -->
 
+
+  <!-- Cobros MLB vs HSP tab content -->
+  <div id="view-cobros" style="display:none">
+
+    <!-- Header -->
+    <div class="log-header">
+      <div>
+        <div class="log-header-title">Cobros &mdash; MLB vs HSP &mdash; Mar&ndash;Mai/26</div>
+        <div class="log-header-sub">Point payment acceptance and usage (risk, methods, fees)</div>
+      </div>
+      <div class="log-badges">
+        <span class="log-badge mlb">&#127463;&#127479; MLB &mdash; Brasil &nbsp;&ndash;&nbsp; <strong>1.157</strong> enc. &nbsp;&middot;&nbsp; CSAT <strong>65,3%</strong></span>
+        <span class="log-badge hsp">&#127758; HSP &mdash; MLA / MLC / MLM &nbsp;&ndash;&nbsp; <strong>832</strong> enc. &nbsp;&middot;&nbsp; CSAT <strong>69,1%</strong></span>
+      </div>
+    </div>
+
+    <!-- CSAT por site -->
+    <div class="val-section">
+      <div class="val-title">CSAT por site &mdash; Cobros</div>
+      <div class="val-subtitle">1.989 encuestas respondidas &middot; Mar&ndash;Mai/26 &middot; CSAT = promotores / encuestas</div>
+
+      <div class="val-by-site" style="margin-bottom:0">
+        <div class="val-by-site-title">CSAT por site</div>
+
+        <!-- MLB -->
+        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
+          <span class="val-site-label" style="padding-top:4px">MLB</span>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="val-site-bar-wrap" style="flex:1">
+                <div class="val-site-bar" style="width:65.3%;background:#66bb6a">
+                  <span>65,3%</span>
+                </div>
+              </div>
+              <span class="val-site-nums">755 prom / 402 det</span>
+              <span style="font-size:11px;font-weight:700;color:#e65100;min-width:80px">1.157 enc.</span>
+            </div>
+            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">58,2% do total de encuestas</div>
+          </div>
+        </div>
+
+        <!-- MLM -->
+        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
+          <span class="val-site-label" style="padding-top:4px">MLM</span>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="val-site-bar-wrap" style="flex:1">
+                <div class="val-site-bar" style="width:71.5%;background:#ffa726">
+                  <span>71,5%</span>
+                </div>
+              </div>
+              <span class="val-site-nums">398 prom / 159 det</span>
+              <span style="font-size:11px;font-weight:700;color:#e65100;min-width:80px">557 enc.</span>
+            </div>
+            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">28,0% do total de encuestas</div>
+          </div>
+        </div>
+
+        <!-- MLA -->
+        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
+          <span class="val-site-label" style="padding-top:4px">MLA</span>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="val-site-bar-wrap" style="flex:1">
+                <div class="val-site-bar" style="width:73.6%;background:#ff7043">
+                  <span>73,6%</span>
+                </div>
+              </div>
+              <span class="val-site-nums">156 prom / 56 det</span>
+              <span style="font-size:11px;font-weight:700;color:#bf360c;min-width:80px">212 enc.</span>
+            </div>
+            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">10,7% do total de encuestas</div>
+          </div>
+        </div>
+
+        <!-- MLC -->
+        <div class="val-site-row" style="align-items:flex-start">
+          <span class="val-site-label" style="padding-top:4px">MLC</span>
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="val-site-bar-wrap" style="flex:1">
+                <div class="val-site-bar" style="width:33.3%;background:#ef5350">
+                  <span>33,3%</span>
+                </div>
+              </div>
+              <span class="val-site-nums">21 prom / 42 det</span>
+              <span style="font-size:11px;font-weight:700;color:#c62828;min-width:80px">63 enc.</span>
+            </div>
+            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">3,2% do total &middot; menor volume</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="val-finding" style="margin-top:16px">
+        <strong>MLC tem o CSAT mais cr&iacute;tico da L2 (33,3%)</strong> com apenas 63 encuestas &mdash; o CSAT reflete alta concentra&ccedil;&atilde;o de detratores
+        (42 det / 21 prom). MLB fica 3,8 pp abaixo da HSP (65,3% vs 69,1%), puxado principalmente por
+        recusas de seguran&ccedil;a e travamentos de terminal com maior volume absoluto no Brasil.
+      </div>
+    </div>
+
+    <!-- Tabela de temas -->
+    <div class="val-section" style="margin-top:14px">
+      <div class="val-title">Temas de Cobros &mdash; Distribui&ccedil;&atilde;o e CSAT por segmento</div>
+      <div class="val-subtitle">
+        1.989 casos com encuesta CSAT &middot; Mar&ndash;Mai/26 &middot; classificados por IA (Claude Haiku) em 2 passagens
+      </div>
+
+      <table class="val-table" style="margin-top:14px">
+        <thead>
+          <tr>
+            <th>Tema</th>
+            <th class="r">Total</th><th class="r">%</th>
+            <th class="r">CSAT geral</th>
+            <th class="r">MLB (n)</th><th class="r">MLB CSAT</th>
+            <th class="r">HSP (n)</th><th class="r">HSP CSAT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- T1 Recusa segurança — abaixo da média -->
+          <tr class="highlight-hsp">
+            <td><strong>Recusa por sistema de seguran&ccedil;a</strong></td>
+            <td class="r">347</td><td class="r">17,4%</td>
+            <td class="r"><strong class="cob-csat-lo">55,3%</strong></td>
+            <td class="r">172</td><td class="r"><strong class="cob-csat-lo">52,9%</strong></td>
+            <td class="r">175</td><td class="r"><strong class="cob-csat-lo">57,7%</strong></td>
+          </tr>
+          <!-- T2 Terminal trava — abaixo da média -->
+          <tr class="highlight-hsp">
+            <td><strong>Terminal/app trava ou n&atilde;o processa</strong></td>
+            <td class="r">289</td><td class="r">14,5%</td>
+            <td class="r"><strong class="cob-csat-lo">59,9%</strong></td>
+            <td class="r">173</td><td class="r"><strong class="cob-csat-lo">59,5%</strong></td>
+            <td class="r">116</td><td class="r"><strong class="cob-csat-lo">60,3%</strong></td>
+          </tr>
+          <!-- T3 Sistema — muito abaixo, pequeno -->
+          <tr class="highlight-hsp">
+            <td>Sistema fora do ar / instabilidade</td>
+            <td class="r">15</td><td class="r">0,8%</td>
+            <td class="r"><strong class="cob-csat-lo">33,3%</strong></td>
+            <td class="r">6</td><td class="r" class="cob-neutral">50,0%</td>
+            <td class="r">9</td><td class="r"><strong class="cob-csat-lo">22,2%</strong></td>
+          </tr>
+          <!-- T4 Método específico — neutro -->
+          <tr>
+            <td>M&eacute;todo de pagamento espec&iacute;fico n&atilde;o aceito</td>
+            <td class="r">293</td><td class="r">14,7%</td>
+            <td class="r" class="cob-neutral">66,9%</td>
+            <td class="r">151</td><td class="r" class="cob-neutral">64,2%</td>
+            <td class="r">142</td><td class="r" class="cob-neutral">69,7%</td>
+          </tr>
+          <!-- T5 Venda não creditada — abaixo da média -->
+          <tr class="highlight-hsp">
+            <td><strong>Venda aprovada mas valor n&atilde;o creditado</strong></td>
+            <td class="r">131</td><td class="r">6,6%</td>
+            <td class="r"><strong class="cob-csat-lo">57,3%</strong></td>
+            <td class="r">77</td><td class="r"><strong class="cob-csat-lo">58,4%</strong></td>
+            <td class="r">54</td><td class="r"><strong class="cob-csat-lo">55,6%</strong></td>
+          </tr>
+          <!-- T6 Habilitação — acima da média -->
+          <tr>
+            <td>Habilita&ccedil;&atilde;o e configura&ccedil;&atilde;o</td>
+            <td class="r">674</td><td class="r">33,9%</td>
+            <td class="r"><strong class="cob-csat-hi">79,4%</strong></td>
+            <td class="r">442</td><td class="r"><strong class="cob-csat-hi">76,0%</strong></td>
+            <td class="r">232</td><td class="r"><strong class="cob-csat-hi">85,8%</strong></td>
+          </tr>
+          <!-- Outros -->
+          <tr style="color:#888">
+            <td>Outros</td>
+            <td class="r">240</td><td class="r">12,1%</td>
+            <td class="r">64,2%</td>
+            <td class="r">136</td><td class="r">58,8%</td>
+            <td class="r">104</td><td class="r">71,2%</td>
+          </tr>
+          <!-- Total -->
+          <tr style="font-weight:700;border-top:2px solid #ddd;background:#f8fafc">
+            <td>TOTAL</td>
+            <td class="r">1.989</td><td class="r">100%</td>
+            <td class="r">66,9%</td>
+            <td class="r">1.157</td><td class="r">65,3%</td>
+            <td class="r">832</td><td class="r">69,1%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="val-finding" style="margin-top:12px">
+        <strong>Classifica&ccedil;&atilde;o via IA (2 passagens) &mdash; Outros reduziu de 40,7% para 12,1%.</strong>
+        Habilitação/configuração é o maior tema (33,9%) com CSAT 79,4% &mdash; bot resolve bem perguntas sobre ativação de NFC, crédito e configuração.
+        Os três drivers cr&iacute;ticos de CSAT s&atilde;o <strong>Recusa por segurança</strong> (55,3%, &minus;11,6 pp),
+        <strong>Venda não creditada</strong> (57,3%, &minus;9,6 pp) e <strong>Terminal/app trava</strong> (59,9%, &minus;7,0 pp).
+        MLC tem CSAT cr&iacute;tico (33,3%) com concentra&ccedil;&atilde;o de recusas por seguran&ccedil;a.
+        No HSP, habilitação tem CSAT significativamente superior ao MLB (85,8% vs 76,0%), sugerindo que o idioma espanhol facilita mais a compreens&atilde;o da resposta.
+      </div>
+    </div>
+
+    <!-- MLB vs HSP: temas críticos -->
+    <div class="val-section" style="margin-top:14px">
+      <div class="val-title">MLB vs HSP &mdash; Temas cr&iacute;ticos em detalhe</div>
+      <div class="val-subtitle">Compara&ccedil;&atilde;o dos 3 temas com CSAT abaixo da m&eacute;dia</div>
+
+      <div class="val-grid" style="margin-top:14px">
+        <!-- MLB card -->
+        <div class="val-card mlb">
+          <div class="val-card-title">&#127463;&#127479; MLB &mdash; Brasil</div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Recusa por seguran&ccedil;a</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num" style="font-size:16px;color:#c62828">52,9%</span>
+              <div class="val-bar-wrap"><div class="val-bar mlb" style="width:52.9%"></div></div>
+              <span class="val-metric-pct">172 casos (14,9%)</span>
+            </div>
+          </div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Terminal/app trava</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num" style="font-size:16px;color:#c62828">59,5%</span>
+              <div class="val-bar-wrap"><div class="val-bar mlb-light" style="width:59.5%"></div></div>
+              <span class="val-metric-pct">173 casos (15,0%)</span>
+            </div>
+          </div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Venda n&atilde;o creditada</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num" style="font-size:16px;color:#c62828">58,4%</span>
+              <div class="val-bar-wrap"><div class="val-bar mlb-light" style="width:58.4%"></div></div>
+              <span class="val-metric-pct">77 casos (6,7%)</span>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e0e0e0;font-size:11px;color:#555">
+            MLB tem <strong>maior volume absoluto</strong> de terminal/app trava (173 casos vs 116 HSP)
+            e recusa por seguran&ccedil;a (172 vs 175 HSP) &mdash; puxando o CSAT geral da L2 no Brasil para baixo.
+          </div>
+        </div>
+
+        <!-- HSP card -->
+        <div class="val-card hsp">
+          <div class="val-card-title">&#127758; HSP &mdash; MLA / MLC / MLM</div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Recusa por seguran&ccedil;a</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num" style="font-size:16px;color:#c62828">57,7%</span>
+              <div class="val-bar-wrap"><div class="val-bar hsp" style="width:57.7%"></div></div>
+              <span class="val-metric-pct">175 casos (21,0%)</span>
+            </div>
+          </div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Terminal/app trava</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num" style="font-size:16px;color:#c62828">60,3%</span>
+              <div class="val-bar-wrap"><div class="val-bar hsp-light" style="width:60.3%"></div></div>
+              <span class="val-metric-pct">116 casos (13,9%)</span>
+            </div>
+          </div>
+
+          <div class="val-metric">
+            <div class="val-metric-label">Venda n&atilde;o creditada</div>
+            <div class="val-metric-row">
+              <span class="val-metric-num" style="font-size:16px;color:#c62828">55,6%</span>
+              <div class="val-bar-wrap"><div class="val-bar hsp-light" style="width:55.6%"></div></div>
+              <span class="val-metric-pct">54 casos (6,5%)</span>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;padding-top:12px;border-top:1px solid #ffe0b2;font-size:11px;color:#555">
+            HSP tem <strong>maior concentra&ccedil;&atilde;o relativa</strong> de recusa por seguran&ccedil;a (21,0% vs 14,9% MLB)
+            e CSAT mais baixo em venda n&atilde;o creditada (55,6% vs 58,4% MLB).
+            MLC &eacute; o outlier cr&iacute;tico: CSAT geral 33,3%.
+          </div>
+        </div>
+      </div>
+
+      <div class="val-finding" style="margin-top:14px">
+        <strong>Principal diferen&ccedil;a MLB vs HSP em Cobros:</strong>
+        No MLB, o problema &eacute; <em>volume</em> &mdash; mais casos absolutos de terminal/trava.
+        No HSP, o problema &eacute; <em>concentra&ccedil;&atilde;o</em> &mdash; recusa por seguran&ccedil;a representa 21% do mix (vs 15% MLB),
+        e MLC tem CSAT cat&aacute;strofico (33,3%) que arrasta a m&eacute;dia regional.
+        Em ambos os segmentos, &ldquo;habilitação/configuração&rdquo; &eacute; o tema que mais sustenta o CSAT &mdash;
+        com CSAT 85,8% no HSP, significativamente acima dos 76,0% do MLB.
+      </div>
+    </div>
+
+  </div><!-- /view-cobros -->
+
 </div><!-- /page -->
 
 <!-- ── Drilldown Panel ── -->
@@ -1237,6 +1538,7 @@ const PERIOD_LABELS = {
 };
 
 function switchPeriod(key) {
+    document.getElementById('view-cobros').style.display = 'none';
   // Ensure waterfall view is visible
   document.getElementById('view-waterfall').style.display = 'block';
   document.getElementById('view-logistica').style.display = 'none';
@@ -1940,6 +2242,8 @@ function renderLogistica() {
 }
 
 function switchView(view) {
+    // hide cobros view too
+    document.getElementById('view-cobros').style.display = 'none';
   const isLog = view === 'logistica';
   document.getElementById('view-waterfall').style.display = isLog ? 'none' : 'block';
   document.getElementById('view-logistica').style.display = isLog ? 'block' : 'none';
