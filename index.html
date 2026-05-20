@@ -510,16 +510,27 @@
     .badge-mlb { background: #e8f5e9; color: #2e7d32; font-weight: 700;
       padding: 1px 6px; border-radius: 4px; font-size: 11px; }
 
-    /* ── Cobros MLB vs HSP ── */
-    #view-cobros { display: none; }
-
-    .cob-csat-hi  { color: #2e7d32; font-weight: 700; }
-    .cob-csat-mid { color: #b45309; font-weight: 700; }
-    .cob-csat-lo  { color: #c62828; font-weight: 700; }
-    .cob-neutral  { color: #555; }
-    .cob-theme-row td { vertical-align: middle; }
-    .cob-bar-wrap { width: 70px; height: 8px; background: #eee; border-radius: 4px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; }
-    .cob-bar { height: 100%; border-radius: 4px; }
+    /* Sub-temas de Falha na entrega */
+    .falha-sub {
+      border: 1px solid #eee; border-radius: 8px;
+      padding: 14px 16px; margin-bottom: 10px;
+    }
+    .falha-sub-hdr {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px; flex-wrap: wrap;
+    }
+    .falha-sub-name {
+      font-size: 13px; font-weight: 700; color: #1a1a2e; flex: 1;
+    }
+    .falha-sub-badge {
+      font-size: 10px; font-weight: 700; padding: 2px 8px;
+      border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+    }
+    .falha-sub-badge.pct  { background: #e8edf4; color: #334; }
+    .falha-sub-badge.csat-low  { background: #ffebee; color: #c62828; }
+    .falha-sub-badge.csat-mid  { background: #fff3e0; color: #e65100; }
+    .falha-sub-badge.csat-ok   { background: #e8f5e9; color: #2e7d32; }
+    .falha-examples { display: flex; flex-direction: column; gap: 6px; }
   </style>
 </head>
 <body>
@@ -530,7 +541,6 @@
     <button class="tab-btn active" data-period="abr_mai" onclick="switchPeriod('abr_mai')">Abr–Mai/26</button>
     <button class="tab-btn"        data-period="mar_mai" onclick="switchPeriod('mar_mai')">Mar–Mai/26</button>
     <button class="tab-btn" data-view="logistica" onclick="switchView('logistica')">Logística MLB vs HSP</button>
-    <button class="tab-btn" data-view="cobros" onclick="switchView('cobros')">Cobros MLB vs HSP</button>
   </div>
 
   <div id="view-waterfall">
@@ -911,296 +921,140 @@
       </div>
     </div>
 
-  </div><!-- /view-logistica -->
 
-
-  <!-- Cobros MLB vs HSP tab content -->
-  <div id="view-cobros" style="display:none">
-
-    <!-- Header -->
-    <div class="log-header">
-      <div>
-        <div class="log-header-title">Cobros &mdash; MLB vs HSP &mdash; Mar&ndash;Mai/26</div>
-        <div class="log-header-sub">Point payment acceptance and usage (risk, methods, fees)</div>
-      </div>
-      <div class="log-badges">
-        <span class="log-badge mlb">&#127463;&#127479; MLB &mdash; Brasil &nbsp;&ndash;&nbsp; <strong>1.157</strong> enc. &nbsp;&middot;&nbsp; CSAT <strong>65,3%</strong></span>
-        <span class="log-badge hsp">&#127758; HSP &mdash; MLA / MLC / MLM &nbsp;&ndash;&nbsp; <strong>832</strong> enc. &nbsp;&middot;&nbsp; CSAT <strong>69,1%</strong></span>
-      </div>
-    </div>
-
-    <!-- CSAT por site -->
-    <div class="val-section">
-      <div class="val-title">CSAT por site &mdash; Cobros</div>
-      <div class="val-subtitle">1.989 encuestas respondidas &middot; Mar&ndash;Mai/26 &middot; CSAT = promotores / encuestas</div>
-
-      <div class="val-by-site" style="margin-bottom:0">
-        <div class="val-by-site-title">CSAT por site</div>
-
-        <!-- MLB -->
-        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
-          <span class="val-site-label" style="padding-top:4px">MLB</span>
-          <div style="flex:1">
-            <div style="display:flex;align-items:center;gap:8px">
-              <div class="val-site-bar-wrap" style="flex:1">
-                <div class="val-site-bar" style="width:65.3%;background:#66bb6a">
-                  <span>65,3%</span>
-                </div>
-              </div>
-              <span class="val-site-nums">755 prom / 402 det</span>
-              <span style="font-size:11px;font-weight:700;color:#e65100;min-width:80px">1.157 enc.</span>
-            </div>
-            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">58,2% do total de encuestas</div>
-          </div>
-        </div>
-
-        <!-- MLM -->
-        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
-          <span class="val-site-label" style="padding-top:4px">MLM</span>
-          <div style="flex:1">
-            <div style="display:flex;align-items:center;gap:8px">
-              <div class="val-site-bar-wrap" style="flex:1">
-                <div class="val-site-bar" style="width:71.5%;background:#ffa726">
-                  <span>71,5%</span>
-                </div>
-              </div>
-              <span class="val-site-nums">398 prom / 159 det</span>
-              <span style="font-size:11px;font-weight:700;color:#e65100;min-width:80px">557 enc.</span>
-            </div>
-            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">28,0% do total de encuestas</div>
-          </div>
-        </div>
-
-        <!-- MLA -->
-        <div class="val-site-row" style="align-items:flex-start;margin-bottom:10px">
-          <span class="val-site-label" style="padding-top:4px">MLA</span>
-          <div style="flex:1">
-            <div style="display:flex;align-items:center;gap:8px">
-              <div class="val-site-bar-wrap" style="flex:1">
-                <div class="val-site-bar" style="width:73.6%;background:#ff7043">
-                  <span>73,6%</span>
-                </div>
-              </div>
-              <span class="val-site-nums">156 prom / 56 det</span>
-              <span style="font-size:11px;font-weight:700;color:#bf360c;min-width:80px">212 enc.</span>
-            </div>
-            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">10,7% do total de encuestas</div>
-          </div>
-        </div>
-
-        <!-- MLC -->
-        <div class="val-site-row" style="align-items:flex-start">
-          <span class="val-site-label" style="padding-top:4px">MLC</span>
-          <div style="flex:1">
-            <div style="display:flex;align-items:center;gap:8px">
-              <div class="val-site-bar-wrap" style="flex:1">
-                <div class="val-site-bar" style="width:33.3%;background:#ef5350">
-                  <span>33,3%</span>
-                </div>
-              </div>
-              <span class="val-site-nums">21 prom / 42 det</span>
-              <span style="font-size:11px;font-weight:700;color:#c62828;min-width:80px">63 enc.</span>
-            </div>
-            <div style="font-size:10px;color:#aaa;margin-top:2px;padding-left:4px">3,2% do total &middot; menor volume</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="val-finding" style="margin-top:16px">
-        <strong>MLC tem o CSAT mais cr&iacute;tico da L2 (33,3%)</strong> com apenas 63 encuestas &mdash; o CSAT reflete alta concentra&ccedil;&atilde;o de detratores
-        (42 det / 21 prom). MLB fica 3,8 pp abaixo da HSP (65,3% vs 69,1%), puxado principalmente por
-        recusas de seguran&ccedil;a e travamentos de terminal com maior volume absoluto no Brasil.
-      </div>
-    </div>
-
-    <!-- Tabela de temas -->
-    <div class="val-section" style="margin-top:14px">
-      <div class="val-title">Temas de Cobros &mdash; Distribui&ccedil;&atilde;o e CSAT por segmento</div>
+    <!-- Sub-temas Falha na entrega -->
+    <div class="val-section" style="margin-top:14px" id="falha-subtemas">
+      <div class="val-title">Falha na entrega &mdash; Sub-temas</div>
       <div class="val-subtitle">
-        1.989 casos com encuesta CSAT &middot; Mar&ndash;Mai/26 &middot; classificados por IA (Claude Haiku) em 2 passagens
+        189 casos &middot; CSAT 51,3% &middot; Mar&ndash;Mai/26
+        &middot; MLM (82) &middot; MLB (78) &middot; MLA (25) &middot; MLC (4)
       </div>
 
-      <table class="val-table" style="margin-top:14px">
-        <thead>
-          <tr>
-            <th>Tema</th>
-            <th class="r">Total</th><th class="r">%</th>
-            <th class="r">CSAT geral</th>
-            <th class="r">MLB (n)</th><th class="r">MLB CSAT</th>
-            <th class="r">HSP (n)</th><th class="r">HSP CSAT</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- T1 Recusa segurança — abaixo da média -->
-          <tr class="highlight-hsp">
-            <td><strong>Recusa por sistema de seguran&ccedil;a</strong></td>
-            <td class="r">347</td><td class="r">17,4%</td>
-            <td class="r"><strong class="cob-csat-lo">55,3%</strong></td>
-            <td class="r">172</td><td class="r"><strong class="cob-csat-lo">52,9%</strong></td>
-            <td class="r">175</td><td class="r"><strong class="cob-csat-lo">57,7%</strong></td>
-          </tr>
-          <!-- T2 Terminal trava — abaixo da média -->
-          <tr class="highlight-hsp">
-            <td><strong>Terminal/app trava ou n&atilde;o processa</strong></td>
-            <td class="r">289</td><td class="r">14,5%</td>
-            <td class="r"><strong class="cob-csat-lo">59,9%</strong></td>
-            <td class="r">173</td><td class="r"><strong class="cob-csat-lo">59,5%</strong></td>
-            <td class="r">116</td><td class="r"><strong class="cob-csat-lo">60,3%</strong></td>
-          </tr>
-          <!-- T3 Sistema — muito abaixo, pequeno -->
-          <tr class="highlight-hsp">
-            <td>Sistema fora do ar / instabilidade</td>
-            <td class="r">15</td><td class="r">0,8%</td>
-            <td class="r"><strong class="cob-csat-lo">33,3%</strong></td>
-            <td class="r">6</td><td class="r" class="cob-neutral">50,0%</td>
-            <td class="r">9</td><td class="r"><strong class="cob-csat-lo">22,2%</strong></td>
-          </tr>
-          <!-- T4 Método específico — neutro -->
-          <tr>
-            <td>M&eacute;todo de pagamento espec&iacute;fico n&atilde;o aceito</td>
-            <td class="r">293</td><td class="r">14,7%</td>
-            <td class="r" class="cob-neutral">66,9%</td>
-            <td class="r">151</td><td class="r" class="cob-neutral">64,2%</td>
-            <td class="r">142</td><td class="r" class="cob-neutral">69,7%</td>
-          </tr>
-          <!-- T5 Venda não creditada — abaixo da média -->
-          <tr class="highlight-hsp">
-            <td><strong>Venda aprovada mas valor n&atilde;o creditado</strong></td>
-            <td class="r">131</td><td class="r">6,6%</td>
-            <td class="r"><strong class="cob-csat-lo">57,3%</strong></td>
-            <td class="r">77</td><td class="r"><strong class="cob-csat-lo">58,4%</strong></td>
-            <td class="r">54</td><td class="r"><strong class="cob-csat-lo">55,6%</strong></td>
-          </tr>
-          <!-- T6 Habilitação — acima da média -->
-          <tr>
-            <td>Habilita&ccedil;&atilde;o e configura&ccedil;&atilde;o</td>
-            <td class="r">674</td><td class="r">33,9%</td>
-            <td class="r"><strong class="cob-csat-hi">79,4%</strong></td>
-            <td class="r">442</td><td class="r"><strong class="cob-csat-hi">76,0%</strong></td>
-            <td class="r">232</td><td class="r"><strong class="cob-csat-hi">85,8%</strong></td>
-          </tr>
-          <!-- Outros -->
-          <tr style="color:#888">
-            <td>Outros</td>
-            <td class="r">240</td><td class="r">12,1%</td>
-            <td class="r">64,2%</td>
-            <td class="r">136</td><td class="r">58,8%</td>
-            <td class="r">104</td><td class="r">71,2%</td>
-          </tr>
-          <!-- Total -->
-          <tr style="font-weight:700;border-top:2px solid #ddd;background:#f8fafc">
-            <td>TOTAL</td>
-            <td class="r">1.989</td><td class="r">100%</td>
-            <td class="r">66,9%</td>
-            <td class="r">1.157</td><td class="r">65,3%</td>
-            <td class="r">832</td><td class="r">69,1%</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="val-finding" style="margin-top:12px">
-        <strong>Classifica&ccedil;&atilde;o via IA (2 passagens) &mdash; Outros reduziu de 40,7% para 12,1%.</strong>
-        Habilitação/configuração é o maior tema (33,9%) com CSAT 79,4% &mdash; bot resolve bem perguntas sobre ativação de NFC, crédito e configuração.
-        Os três drivers cr&iacute;ticos de CSAT s&atilde;o <strong>Recusa por segurança</strong> (55,3%, &minus;11,6 pp),
-        <strong>Venda não creditada</strong> (57,3%, &minus;9,6 pp) e <strong>Terminal/app trava</strong> (59,9%, &minus;7,0 pp).
-        MLC tem CSAT cr&iacute;tico (33,3%) com concentra&ccedil;&atilde;o de recusas por seguran&ccedil;a.
-        No HSP, habilitação tem CSAT significativamente superior ao MLB (85,8% vs 76,0%), sugerindo que o idioma espanhol facilita mais a compreens&atilde;o da resposta.
-      </div>
-    </div>
-
-    <!-- MLB vs HSP: temas críticos -->
-    <div class="val-section" style="margin-top:14px">
-      <div class="val-title">MLB vs HSP &mdash; Temas cr&iacute;ticos em detalhe</div>
-      <div class="val-subtitle">Compara&ccedil;&atilde;o dos 3 temas com CSAT abaixo da m&eacute;dia</div>
-
-      <div class="val-grid" style="margin-top:14px">
-        <!-- MLB card -->
-        <div class="val-card mlb">
-          <div class="val-card-title">&#127463;&#127479; MLB &mdash; Brasil</div>
-
-          <div class="val-metric">
-            <div class="val-metric-label">Recusa por seguran&ccedil;a</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num" style="font-size:16px;color:#c62828">52,9%</span>
-              <div class="val-bar-wrap"><div class="val-bar mlb" style="width:52.9%"></div></div>
-              <span class="val-metric-pct">172 casos (14,9%)</span>
-            </div>
-          </div>
-
-          <div class="val-metric">
-            <div class="val-metric-label">Terminal/app trava</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num" style="font-size:16px;color:#c62828">59,5%</span>
-              <div class="val-bar-wrap"><div class="val-bar mlb-light" style="width:59.5%"></div></div>
-              <span class="val-metric-pct">173 casos (15,0%)</span>
-            </div>
-          </div>
-
-          <div class="val-metric">
-            <div class="val-metric-label">Venda n&atilde;o creditada</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num" style="font-size:16px;color:#c62828">58,4%</span>
-              <div class="val-bar-wrap"><div class="val-bar mlb-light" style="width:58.4%"></div></div>
-              <span class="val-metric-pct">77 casos (6,7%)</span>
-            </div>
-          </div>
-
-          <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e0e0e0;font-size:11px;color:#555">
-            MLB tem <strong>maior volume absoluto</strong> de terminal/app trava (173 casos vs 116 HSP)
-            e recusa por seguran&ccedil;a (172 vs 175 HSP) &mdash; puxando o CSAT geral da L2 no Brasil para baixo.
-          </div>
+      <!-- 1 -->
+      <div class="falha-sub" style="border-left:3px solid #c62828">
+        <div class="falha-sub-hdr">
+          <span class="falha-sub-name">Cancelamento bloqueado ou sem resolucao pelo bot</span>
+          <span class="falha-sub-badge pct">~45% &middot; ~85 casos</span>
+          <span class="falha-sub-badge csat-low">CSAT 3,0</span>
         </div>
-
-        <!-- HSP card -->
-        <div class="val-card hsp">
-          <div class="val-card-title">&#127758; HSP &mdash; MLA / MLC / MLM</div>
-
-          <div class="val-metric">
-            <div class="val-metric-label">Recusa por seguran&ccedil;a</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num" style="font-size:16px;color:#c62828">57,7%</span>
-              <div class="val-bar-wrap"><div class="val-bar hsp" style="width:57.7%"></div></div>
-              <span class="val-metric-pct">175 casos (21,0%)</span>
-            </div>
+        <div class="falha-examples">
+          <div class="panel-example">
+            <div class="panel-example-id">8407901b-9d52-4280-9e38-43840525ac06 &middot; MLM</div>
+            <div class="panel-example-text">&ldquo;Como modificar la direcci&oacute;n para la entrega de una terminal? Quiero mi devoluci&oacute;n de Point. Quiero cancelarla.&rdquo;</div>
           </div>
-
-          <div class="val-metric">
-            <div class="val-metric-label">Terminal/app trava</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num" style="font-size:16px;color:#c62828">60,3%</span>
-              <div class="val-bar-wrap"><div class="val-bar hsp-light" style="width:60.3%"></div></div>
-              <span class="val-metric-pct">116 casos (13,9%)</span>
-            </div>
+          <div class="panel-example">
+            <div class="panel-example-id">c0e039cf-14bd-4b56-9cff-3b6960486408 &middot; MLB</div>
+            <div class="panel-example-text">&ldquo;Eu preciso da maquininha para vender. Est&atilde;o cancelaram, quero saber o porqu&ecirc; que foi cancelado.&rdquo;</div>
           </div>
-
-          <div class="val-metric">
-            <div class="val-metric-label">Venda n&atilde;o creditada</div>
-            <div class="val-metric-row">
-              <span class="val-metric-num" style="font-size:16px;color:#c62828">55,6%</span>
-              <div class="val-bar-wrap"><div class="val-bar hsp-light" style="width:55.6%"></div></div>
-              <span class="val-metric-pct">54 casos (6,5%)</span>
-            </div>
-          </div>
-
-          <div style="margin-top:14px;padding-top:12px;border-top:1px solid #ffe0b2;font-size:11px;color:#555">
-            HSP tem <strong>maior concentra&ccedil;&atilde;o relativa</strong> de recusa por seguran&ccedil;a (21,0% vs 14,9% MLB)
-            e CSAT mais baixo em venda n&atilde;o creditada (55,6% vs 58,4% MLB).
-            MLC &eacute; o outlier cr&iacute;tico: CSAT geral 33,3%.
+          <div class="panel-example">
+            <div class="panel-example-id">ec66ec4a-30b7-4e11-bd5b-e2724456668c &middot; MLM</div>
+            <div class="panel-example-text">&ldquo;Cancelar compra. Si. Ya no lo necesito. Falla. Muy mala.&rdquo;</div>
           </div>
         </div>
       </div>
 
-      <div class="val-finding" style="margin-top:14px">
-        <strong>Principal diferen&ccedil;a MLB vs HSP em Cobros:</strong>
-        No MLB, o problema &eacute; <em>volume</em> &mdash; mais casos absolutos de terminal/trava.
-        No HSP, o problema &eacute; <em>concentra&ccedil;&atilde;o</em> &mdash; recusa por seguran&ccedil;a representa 21% do mix (vs 15% MLB),
-        e MLC tem CSAT cat&aacute;strofico (33,3%) que arrasta a m&eacute;dia regional.
-        Em ambos os segmentos, &ldquo;habilitação/configuração&rdquo; &eacute; o tema que mais sustenta o CSAT &mdash;
-        com CSAT 85,8% no HSP, significativamente acima dos 76,0% do MLB.
+      <!-- 2 -->
+      <div class="falha-sub" style="border-left:3px solid #ffa726">
+        <div class="falha-sub-hdr">
+          <span class="falha-sub-name">Problemas gerais de entrega / contato generico</span>
+          <span class="falha-sub-badge pct">~22% &middot; ~42 casos</span>
+          <span class="falha-sub-badge csat-mid">CSAT 3,8</span>
+        </div>
+        <div class="falha-examples">
+          <div class="panel-example">
+            <div class="panel-example-id">69f32692-8765-477d-8bf0-87e2231caecd &middot; MLM</div>
+            <div class="panel-example-text">&ldquo;Acabo de hacer un pedido de Point, asegurar que manden la tarjeta porque no la han mandado en tres ocasiones.&rdquo;</div>
+          </div>
+          <div class="panel-example">
+            <div class="panel-example-id">86573d2e-627d-4364-9780-d8769fdb3ea8 &middot; MLB</div>
+            <div class="panel-example-text">&ldquo;No me lleg&oacute; el chip de la terminal. Cuando llega. Que manden el chip de inmediato. Regular.&rdquo;</div>
+          </div>
+          <div class="panel-example">
+            <div class="panel-example-id">f4e18cce-a156-4898-b3e0-c2864775d9b7 &middot; MLB</div>
+            <div class="panel-example-text">&ldquo;Falam que n&atilde;o entrega no meu endere&ccedil;o a m&aacute;quina de cart&atilde;o.&rdquo;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="falha-sub" style="border-left:3px solid #c62828">
+        <div class="falha-sub-hdr">
+          <span class="falha-sub-name">Endereco incorreto / impossibilidade de alterar</span>
+          <span class="falha-sub-badge pct">~14% &middot; ~27 casos</span>
+          <span class="falha-sub-badge csat-low">CSAT 2,6</span>
+        </div>
+        <div class="falha-examples">
+          <div class="panel-example">
+            <div class="panel-example-id">c6d12f44-0f85-46ac-a101-e48532373dad &middot; MLB</div>
+            <div class="panel-example-text">&ldquo;Endere&ccedil;o est&aacute; errado! N&atilde;o &eacute; esse. Preciso alterar. Rua Nogueira 46, Bairro Vila Penteado...&rdquo;</div>
+          </div>
+          <div class="panel-example">
+            <div class="panel-example-id">cff1e156-cebd-4fae-aeed-9265f87e0806 &middot; MLM</div>
+            <div class="panel-example-text">&ldquo;La direcci&oacute;n que puse es incorrecta. El paquete est&aacute; en proceso y no me lo pueden cancelar si no me lo pueden cancelar cambien la direcci&oacute;n. Muy mala.&rdquo;</div>
+          </div>
+          <div class="panel-example">
+            <div class="panel-example-id">81b4d1f9-36b3-4d4a-a482-d8e803840083 &middot; MLM</div>
+            <div class="panel-example-text">&ldquo;Cambio de domicilio. Muy mala. Necesito el aparato pero necesito cambiar la direcci&oacute;n.&rdquo;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="falha-sub" style="border-left:3px solid #e65100">
+        <div class="falha-sub-hdr">
+          <span class="falha-sub-name">Entrega falsa &mdash; marcado entregue mas nao recebido</span>
+          <span class="falha-sub-badge pct">~10% &middot; ~19 casos</span>
+          <span class="falha-sub-badge csat-mid">CSAT 3,4</span>
+        </div>
+        <div class="falha-examples">
+          <div class="panel-example">
+            <div class="panel-example-id">e44076a2-67a2-4936-914c-dd7735f2ced7 &middot; MLM</div>
+            <div class="panel-example-text">&ldquo;Dejaron mi paquete en la direcci&oacute;n incorrecta. Nadie me da respuesta para la devoluci&oacute;n de paquete. El paquete lo aventaron a la basura sin mi consentimiento.&rdquo;</div>
+          </div>
+          <div class="panel-example">
+            <div class="panel-example-id">0179d22b-fe97-4306-bb4b-a1ae478c8fab &middot; MLM</div>
+            <div class="panel-example-text">&ldquo;Se robaron mi paquete. Aparece como entregado pero a m&iacute; no me entregaron nada. Me mandaron la foto junto con que me entregaron.&rdquo;</div>
+          </div>
+          <div class="panel-example">
+            <div class="panel-example-id">1c744b86-6117-41cb-ab1b-cd545a12f5b6 &middot; MLB</div>
+            <div class="panel-example-text">&ldquo;Meu cliente n&atilde;o recebeu a maquineta comprada atrav&eacute;s do meu link do Mercado Pago. Ele pagou e n&atilde;o chegou.&rdquo;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="falha-sub" style="border-left:3px solid #b71c1c">
+        <div class="falha-sub-hdr">
+          <span class="falha-sub-name">Tentativa de entrega falha / devolvido a origem</span>
+          <span class="falha-sub-badge pct">~4% &middot; ~8 casos</span>
+          <span class="falha-sub-badge csat-low">CSAT 2,1 &mdash; pior sub-tema</span>
+        </div>
+        <div class="falha-examples">
+          <div class="panel-example">
+            <div class="panel-example-id">11fbd71c-736b-49c1-8dbc-8e8338bf9f19 &middot; MLM</div>
+            <div class="panel-example-text">&ldquo;Llega mensaje que no se encontr&oacute; a nadie y eso no es cierto, estoy en mi domicilio y adem&aacute;s hay servicio de recepci&oacute;n y mensajer&iacute;a las 24 horas. Muy mala. No resolvi&oacute; mi solicitud.&rdquo;</div>
+          </div>
+          <div class="panel-example">
+            <div class="panel-example-id">ac73b97b-22c0-450f-8d81-186a99ca8bac &middot; MLC</div>
+            <div class="panel-example-text">&ldquo;Problemas para recibir compra 156255038943. Reagendar entrega. &iquest;Qu&eacute; alternativas tengo?&rdquo;</div>
+          </div>
+          <div class="panel-example">
+            <div class="panel-example-id">0dba10cc-0d07-4da0-8970-825d805ebd23 &middot; MLA</div>
+            <div class="panel-example-text">&ldquo;Ayer dijeron que me iban a cambiar, no anda el WiFi ni nada. S&iacute; estoy perdiendo ventas. El retiro del recambio!&rdquo;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="val-finding">
+        <strong>Oportunidades de acao:</strong>
+        Sub-temas 1 e 3 concentram ~59% do volume com CSAT &lt; 3,0:
+        o bot precisa habilitar <em>cancelamento</em> e <em>alteracao de endereco</em> como acoes resolviv&eacute;is em autoatendimento.
+        &ldquo;Tentativa de entrega falha&rdquo; tem o CSAT mais critico (2,1) e exige integra&ccedil;&atilde;o com transportadora para
+        reagendamento direto via chat. &ldquo;Entrega falsa&rdquo; requer processo de disputa de entrega acess&iacute;vel ao cliente.
       </div>
     </div>
 
-  </div><!-- /view-cobros -->
+  </div><!-- /view-logistica -->
 
 </div><!-- /page -->
 
@@ -1383,7 +1237,6 @@ const PERIOD_LABELS = {
 };
 
 function switchPeriod(key) {
-    document.getElementById('view-cobros').style.display = 'none';
   // Ensure waterfall view is visible
   document.getElementById('view-waterfall').style.display = 'block';
   document.getElementById('view-logistica').style.display = 'none';
@@ -2087,12 +1940,12 @@ function renderLogistica() {
 }
 
 function switchView(view) {
-  document.getElementById('view-waterfall').style.display = (view === 'logistica' || view === 'cobros') ? 'none' : 'block';
-  document.getElementById('view-logistica').style.display = view === 'logistica' ? 'block' : 'none';
-  document.getElementById('view-cobros').style.display    = view === 'cobros'    ? 'block' : 'none';
+  const isLog = view === 'logistica';
+  document.getElementById('view-waterfall').style.display = isLog ? 'none' : 'block';
+  document.getElementById('view-logistica').style.display = isLog ? 'block' : 'none';
   document.querySelectorAll('.tab-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.view === view || b.dataset.period === view));
-  if (view === 'logistica') renderLogistica();
+  if (isLog) renderLogistica();
 }
 
 const DEFLECTION = {
