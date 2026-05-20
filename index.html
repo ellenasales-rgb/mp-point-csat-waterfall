@@ -2242,14 +2242,12 @@ function renderLogistica() {
 }
 
 function switchView(view) {
-    // hide cobros view too
-    document.getElementById('view-cobros').style.display = 'none';
-  const isLog = view === 'logistica';
-  document.getElementById('view-waterfall').style.display = isLog ? 'none' : 'block';
-  document.getElementById('view-logistica').style.display = isLog ? 'block' : 'none';
+  document.getElementById('view-waterfall').style.display = (view === 'logistica' || view === 'cobros') ? 'none' : 'block';
+  document.getElementById('view-logistica').style.display = view === 'logistica' ? 'block' : 'none';
+  document.getElementById('view-cobros').style.display    = view === 'cobros'    ? 'block' : 'none';
   document.querySelectorAll('.tab-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.view === view || b.dataset.period === view));
-  if (isLog) renderLogistica();
+  if (view === 'logistica') renderLogistica();
 }
 
 const DEFLECTION = {
