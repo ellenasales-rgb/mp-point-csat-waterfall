@@ -1081,6 +1081,92 @@
 // ─────────────────────────────────────────────────────────────
 
 // RAW DATA — Mar–Mai/2026
+// RAW DATA (from BigQuery · Abr–Mai/2026 · Point L1 · HELP · MLA/MLB/MLC/MLM)
+const RAW = {
+  TOTAL: {
+    label: "Cross-sites (todos)",
+    csat: 73.53,
+    total_surveys: 5036,
+    l2: [
+      {"l2": "Point reader hardware faults and RMA", "surveys": 1824, "detratores": 459, "csat_pct": 74.84, "gap_pp": 9.11},
+      {"l2": "Point payment acceptance and usage (risk, methods, fees)", "surveys": 833, "detratores": 289, "csat_pct": 65.31, "gap_pp": 5.74},
+      {"l2": "Shipments, deliveries, and returns for Point purchases and consumables", "surveys": 747, "detratores": 220, "csat_pct": 70.55, "gap_pp": 4.37},
+      {"l2": "Point account and entitlement management (linking, ownership, vouchers)", "surveys": 882, "detratores": 185, "csat_pct": 79.02, "gap_pp": 3.67},
+      {"l2": "In-person payment reconciliation and refunds (Point)", "surveys": 275, "detratores": 98, "csat_pct": 64.36, "gap_pp": 1.95},
+      {"l2": "Cellular/SIM connectivity in Point devices", "surveys": 399, "detratores": 63, "csat_pct": 84.21, "gap_pp": 1.25},
+      {"l2": "Otros", "surveys": 31, "detratores": 8, "csat_pct": 74.19, "gap_pp": 0.16},
+      {"l2": "Fiscal receipt/invoice service activation and configuration (SII and receipts)", "surveys": 29, "detratores": 8, "csat_pct": 72.41, "gap_pp": 0.16},
+      {"l2": "Others", "surveys": 13, "detratores": 3, "csat_pct": 76.92, "gap_pp": 0.06},
+      {"l2": "Redelcom/Smart POS operations and migration (Chile)", "surveys": 3, "detratores": 0, "csat_pct": 100.0, "gap_pp": 0.0},
+    ]
+  },
+  MLA: {
+    label: "MLA \u2014 Argentina",
+    csat: 80.52,
+    total_surveys: 698,
+    l2: [
+      {"l2": "Point reader hardware faults and RMA", "surveys": 301, "detratores": 55, "csat_pct": 81.73, "gap_pp": 7.88},
+      {"l2": "Shipments, deliveries, and returns for Point purchases and consumables", "surveys": 101, "detratores": 28, "csat_pct": 72.28, "gap_pp": 4.01},
+      {"l2": "Point account and entitlement management (linking, ownership, vouchers)", "surveys": 125, "detratores": 20, "csat_pct": 84.0, "gap_pp": 2.87},
+      {"l2": "Point payment acceptance and usage (risk, methods, fees)", "surveys": 87, "detratores": 18, "csat_pct": 79.31, "gap_pp": 2.58},
+      {"l2": "In-person payment reconciliation and refunds (Point)", "surveys": 26, "detratores": 7, "csat_pct": 73.08, "gap_pp": 1.0},
+      {"l2": "Cellular/SIM connectivity in Point devices", "surveys": 45, "detratores": 4, "csat_pct": 91.11, "gap_pp": 0.57},
+      {"l2": "Otros", "surveys": 8, "detratores": 2, "csat_pct": 75.0, "gap_pp": 0.29},
+      {"l2": "Others", "surveys": 2, "detratores": 1, "csat_pct": 50.0, "gap_pp": 0.14},
+      {"l2": "Fiscal receipt/invoice service activation and configuration (SII and receipts)", "surveys": 3, "detratores": 1, "csat_pct": 66.67, "gap_pp": 0.14},
+    ]
+  },
+  MLB: {
+    label: "MLB \u2014 Brasil",
+    csat: 72.96,
+    total_surveys: 2611,
+    l2: [
+      {"l2": "Point reader hardware faults and RMA", "surveys": 920, "detratores": 263, "csat_pct": 71.41, "gap_pp": 10.07},
+      {"l2": "Point payment acceptance and usage (risk, methods, fees)", "surveys": 428, "detratores": 155, "csat_pct": 63.79, "gap_pp": 5.94},
+      {"l2": "Point account and entitlement management (linking, ownership, vouchers)", "surveys": 483, "detratores": 102, "csat_pct": 78.88, "gap_pp": 3.91},
+      {"l2": "Shipments, deliveries, and returns for Point purchases and consumables", "surveys": 354, "detratores": 95, "csat_pct": 73.16, "gap_pp": 3.64},
+      {"l2": "In-person payment reconciliation and refunds (Point)", "surveys": 121, "detratores": 47, "csat_pct": 61.16, "gap_pp": 1.8},
+      {"l2": "Cellular/SIM connectivity in Point devices", "surveys": 285, "detratores": 42, "csat_pct": 85.26, "gap_pp": 1.61},
+      {"l2": "Otros", "surveys": 11, "detratores": 2, "csat_pct": 81.82, "gap_pp": 0.08},
+      {"l2": "Others", "surveys": 5, "detratores": 0, "csat_pct": 100.0, "gap_pp": 0.0},
+      {"l2": "Fiscal receipt/invoice service activation and configuration (SII and receipts)", "surveys": 3, "detratores": 0, "csat_pct": 100.0, "gap_pp": 0.0},
+      {"l2": "Redelcom/Smart POS operations and migration (Chile)", "surveys": 1, "detratores": 0, "csat_pct": 100.0, "gap_pp": 0.0},
+    ]
+  },
+  MLC: {
+    label: "MLC \u2014 Chile",
+    csat: 59.59,
+    total_surveys: 193,
+    l2: [
+      {"l2": "Point payment acceptance and usage (risk, methods, fees)", "surveys": 44, "detratores": 24, "csat_pct": 45.45, "gap_pp": 12.44},
+      {"l2": "Point reader hardware faults and RMA", "surveys": 56, "detratores": 20, "csat_pct": 64.29, "gap_pp": 10.36},
+      {"l2": "Point account and entitlement management (linking, ownership, vouchers)", "surveys": 38, "detratores": 11, "csat_pct": 71.05, "gap_pp": 5.7},
+      {"l2": "Shipments, deliveries, and returns for Point purchases and consumables", "surveys": 21, "detratores": 9, "csat_pct": 57.14, "gap_pp": 4.66},
+      {"l2": "In-person payment reconciliation and refunds (Point)", "surveys": 9, "detratores": 6, "csat_pct": 33.33, "gap_pp": 3.11},
+      {"l2": "Fiscal receipt/invoice service activation and configuration (SII and receipts)", "surveys": 15, "detratores": 4, "csat_pct": 73.33, "gap_pp": 2.07},
+      {"l2": "Cellular/SIM connectivity in Point devices", "surveys": 7, "detratores": 4, "csat_pct": 42.86, "gap_pp": 2.07},
+      {"l2": "Redelcom/Smart POS operations and migration (Chile)", "surveys": 2, "detratores": 0, "csat_pct": 100.0, "gap_pp": 0.0},
+      {"l2": "Otros", "surveys": 1, "detratores": 0, "csat_pct": 100.0, "gap_pp": 0.0},
+    ]
+  },
+  MLM: {
+    label: "MLM \u2014 M\u00e9xico",
+    csat: 73.08,
+    total_surveys: 1534,
+    l2: [
+      {"l2": "Point reader hardware faults and RMA", "surveys": 547, "detratores": 121, "csat_pct": 77.88, "gap_pp": 7.89},
+      {"l2": "Point payment acceptance and usage (risk, methods, fees)", "surveys": 274, "detratores": 92, "csat_pct": 66.42, "gap_pp": 6.0},
+      {"l2": "Shipments, deliveries, and returns for Point purchases and consumables", "surveys": 271, "detratores": 88, "csat_pct": 67.53, "gap_pp": 5.74},
+      {"l2": "Point account and entitlement management (linking, ownership, vouchers)", "surveys": 236, "detratores": 52, "csat_pct": 77.97, "gap_pp": 3.39},
+      {"l2": "In-person payment reconciliation and refunds (Point)", "surveys": 119, "detratores": 38, "csat_pct": 68.07, "gap_pp": 2.48},
+      {"l2": "Cellular/SIM connectivity in Point devices", "surveys": 62, "detratores": 13, "csat_pct": 79.03, "gap_pp": 0.85},
+      {"l2": "Otros", "surveys": 11, "detratores": 4, "csat_pct": 63.64, "gap_pp": 0.26},
+      {"l2": "Fiscal receipt/invoice service activation and configuration (SII and receipts)", "surveys": 8, "detratores": 3, "csat_pct": 62.5, "gap_pp": 0.2},
+      {"l2": "Others", "surveys": 6, "detratores": 2, "csat_pct": 66.67, "gap_pp": 0.13},
+    ]
+  },
+};
+
 const RAW_MAR_MAY = {
   TOTAL: {
     label: "Cross-sites (todos)", csat: 74.33, total_surveys: 13518,
